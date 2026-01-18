@@ -1,65 +1,187 @@
-import Image from "next/image";
+'use client';
+
+import Link from 'next/link';
+import { useTranslation } from '@/lib/i18n';
 
 export default function Home() {
+  const { t } = useTranslation();
+
+  const problems = [
+    { key: '1', icon: '📊' },
+    { key: '2', icon: '📢' },
+    { key: '3', icon: '🌐' },
+    { key: '4', icon: '⚠️' },
+  ];
+
+  const solutions = [
+    { key: '1', icon: '🚫' },
+    { key: '2', icon: '🤖' },
+    { key: '3', icon: '🔄' },
+    { key: '4', icon: '✅' },
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="home">
+      {/* Hero Section */}
+      <section className="hero section">
+        <div className="container">
+          <div className="hero-content">
+            <p className="mono accent">// Building Trust in Medical Aesthetics</p>
+            <h1>{t('hero.tagline')}</h1>
+            <p className="hero-description">{t('hero.description')}</p>
+            <div className="hero-cta">
+              <Link href="/services" className="btn btn-primary">
+                {t('hero.cta.primary')}
+              </Link>
+              <Link href="/contact" className="btn btn-secondary">
+                {t('hero.cta.secondary')}
+              </Link>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Problem Section */}
+      <section className="problems section">
+        <div className="container">
+          <div className="section-header">
+            <p className="mono accent">// The Challenge</p>
+            <h2>{t('problem.title')}</h2>
+            <p className="section-subtitle">{t('problem.subtitle')}</p>
+          </div>
+          <div className="grid-2 stagger">
+            {problems.map((problem) => (
+              <div key={problem.key} className="card">
+                <span className="card-icon">{problem.icon}</span>
+                <h3>{t(`problem.${problem.key}.title`)}</h3>
+                <p>{t(`problem.${problem.key}.desc`)}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* Solution Section */}
+      <section className="solutions section">
+        <div className="container">
+          <div className="section-header">
+            <p className="mono accent">// Our Approach</p>
+            <h2>{t('solution.title')}</h2>
+            <p className="section-subtitle">{t('solution.subtitle')}</p>
+          </div>
+          <div className="grid-2 stagger">
+            {solutions.map((solution) => (
+              <div key={solution.key} className="card solution-card">
+                <span className="card-icon">{solution.icon}</span>
+                <h3>{t(`solution.${solution.key}.title`)}</h3>
+                <p>{t(`solution.${solution.key}.desc`)}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="cta-section section">
+        <div className="container">
+          <div className="cta-content">
+            <h2>Ready to learn more?</h2>
+            <p>Discover how AI Sapiens is building the future of trusted medical aesthetics information.</p>
+            <Link href="/contact" className="btn btn-primary">
+              {t('hero.cta.secondary')}
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <style jsx>{`
+        .hero {
+          min-height: calc(100vh - 70px);
+          display: flex;
+          align-items: center;
+          text-align: center;
+        }
+
+        .hero-content {
+          max-width: 800px;
+          margin: 0 auto;
+        }
+
+        .hero-content .mono {
+          margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+          font-size: 1.25rem;
+          margin: 1.5rem 0 2.5rem;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .hero-cta {
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        .section-header {
+          text-align: center;
+          margin-bottom: 4rem;
+        }
+
+        .section-header .mono {
+          margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+          font-size: 1.125rem;
+          margin-top: 1rem;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .card-icon {
+          font-size: 2rem;
+          margin-bottom: 1rem;
+          display: block;
+        }
+
+        .card h3 {
+          margin-bottom: 0.75rem;
+        }
+
+        .solution-card {
+          border-left: 3px solid #64ffda;
+        }
+
+        .cta-section {
+          background: linear-gradient(180deg, transparent 0%, rgba(100, 255, 218, 0.05) 100%);
+        }
+
+        .cta-content {
+          text-align: center;
+          max-width: 600px;
+          margin: 0 auto;
+        }
+
+        .cta-content h2 {
+          margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+          margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+          .hero {
+            min-height: auto;
+            padding-top: 4rem;
+          }
+        }
+      `}</style>
     </div>
   );
 }
