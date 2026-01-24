@@ -6,86 +6,86 @@ import { useState } from 'react';
 import { useTranslation } from '@/lib/i18n';
 
 export default function Header() {
-    const { language, setLanguage, t } = useTranslation();
-    const pathname = usePathname();
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { language, setLanguage, t } = useTranslation();
+  const pathname = usePathname();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-    const navLinks = [
-        { href: '/', label: 'nav.home' },
-        { href: '/about', label: 'nav.about' },
-        { href: '/services', label: 'nav.services' },
-        { href: '/roadmap', label: 'nav.roadmap' },
-        { href: '/contact', label: 'nav.contact' },
-    ];
+  const navLinks = [
+    { href: '/', label: 'nav.home' },
+    { href: '/about', label: 'nav.about' },
+    { href: '/services', label: 'nav.services' },
+    { href: '/roadmap', label: 'nav.roadmap' },
+    { href: '/contact', label: 'nav.contact' },
+  ];
 
-    const toggleLanguage = () => {
-        setLanguage(language === 'en' ? 'ko' : 'en');
-    };
+  const toggleLanguage = () => {
+    setLanguage(language === 'en' ? 'ko' : 'en');
+  };
 
-    return (
-        <header className="header">
-            <nav className="nav container">
-                <Link href="/" className="logo">
-                    <span className="logo-text">AI</span>
-                    <span className="logo-accent">Sapiens</span>
-                </Link>
+  return (
+    <header className="header">
+      <nav className="nav container">
+        <Link href="/" className="logo">
+          <span className="logo-text">Co</span>
+          <span className="logo-accent">Auths</span>
+        </Link>
 
-                {/* Desktop Navigation */}
-                <div className="nav-links">
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.href}
-                            href={link.href}
-                            className={`nav-link ${pathname === link.href ? 'active' : ''}`}
-                        >
-                            {t(link.label)}
-                        </Link>
-                    ))}
-                </div>
+        {/* Desktop Navigation */}
+        <div className="nav-links">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`nav-link ${pathname === link.href ? 'active' : ''}`}
+            >
+              {t(link.label)}
+            </Link>
+          ))}
+        </div>
 
-                <div className="nav-actions">
-                    <button
-                        onClick={toggleLanguage}
-                        className="lang-toggle"
-                        aria-label="Toggle language"
-                    >
-                        <span className={language === 'en' ? 'active' : ''}>EN</span>
-                        <span className="divider">/</span>
-                        <span className={language === 'ko' ? 'active' : ''}>KO</span>
-                    </button>
+        <div className="nav-actions">
+          <button
+            onClick={toggleLanguage}
+            className="lang-toggle"
+            aria-label="Toggle language"
+          >
+            <span className={language === 'en' ? 'active' : ''}>EN</span>
+            <span className="divider">/</span>
+            <span className={language === 'ko' ? 'active' : ''}>KO</span>
+          </button>
 
-                    {/* Mobile Menu Button */}
-                    <button
-                        className="mobile-menu-btn"
-                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        aria-label="Toggle menu"
-                    >
-                        <span className={`hamburger ${mobileMenuOpen ? 'open' : ''}`}>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </span>
-                    </button>
-                </div>
+          {/* Mobile Menu Button */}
+          <button
+            className="mobile-menu-btn"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span className={`hamburger ${mobileMenuOpen ? 'open' : ''}`}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </button>
+        </div>
 
-                {/* Mobile Navigation */}
-                <div className={`mobile-nav ${mobileMenuOpen ? 'open' : ''}`}>
-                    {navLinks.map((link, index) => (
-                        <Link
-                            key={link.href}
-                            href={link.href}
-                            className={`mobile-nav-link ${pathname === link.href ? 'active' : ''}`}
-                            onClick={() => setMobileMenuOpen(false)}
-                            style={{ animationDelay: `${index * 0.1}s` }}
-                        >
-                            <span className="mono accent">0{index + 1}.</span>
-                            {t(link.label)}
-                        </Link>
-                    ))}
-                </div>
-            </nav>
+        {/* Mobile Navigation */}
+        <div className={`mobile-nav ${mobileMenuOpen ? 'open' : ''}`}>
+          {navLinks.map((link, index) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`mobile-nav-link ${pathname === link.href ? 'active' : ''}`}
+              onClick={() => setMobileMenuOpen(false)}
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <span className="mono accent">0{index + 1}.</span>
+              {t(link.label)}
+            </Link>
+          ))}
+        </div>
+      </nav>
 
-            <style jsx>{`
+      <style jsx>{`
         .header {
           position: fixed;
           top: 0;
@@ -266,6 +266,6 @@ export default function Header() {
           }
         }
       `}</style>
-        </header>
-    );
+    </header>
+  );
 }

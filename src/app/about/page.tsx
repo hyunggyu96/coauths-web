@@ -3,80 +3,77 @@
 import { useTranslation } from '@/lib/i18n';
 
 export default function About() {
-    const { t } = useTranslation();
+  const { t } = useTranslation();
 
-    const principles = [
-        { key: '1', icon: '🚫' },
-        { key: '2', icon: '🔒' },
-        { key: '3', icon: '⚖️' },
-        { key: '4', icon: '🔍' },
-    ];
+  const principles = [
+    { key: '1', icon: '🚫' },
+    { key: '2', icon: '🔒' },
+    { key: '3', icon: '⚖️' },
+    { key: '4', icon: '🔍' },
+  ];
 
-    return (
-        <div className="about">
-            {/* Hero */}
-            <section className="page-hero section">
-                <div className="container">
-                    <p className="mono accent">// About Us</p>
-                    <h1>{t('about.title')}</h1>
-                </div>
-            </section>
+  return (
+    <div className="about">
+      {/* Hero */}
+      <section className="page-hero section">
+        <div className="container">
+          <p className="mono accent">// About Us</p>
+          <h1>{t('about.title')}</h1>
+        </div>
+      </section>
 
-            {/* Mission */}
-            <section className="mission section">
-                <div className="container">
-                    <div className="mission-content">
-                        <div className="mission-label">
-                            <span className="mono accent">01</span>
-                            <h2>{t('about.mission.title')}</h2>
-                        </div>
-                        <div className="mission-text">
-                            <p className="lead">{t('about.mission.desc')}</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+      {/* Mission */}
+      <section className="mission section">
+        <div className="container">
+          <div className="mission-content">
+            <div className="mission-label">
+              <span className="mono accent">01</span>
+              <h2>{t('about.mission.title')}</h2>
+            </div>
+            <div className="mission-text">
+              <p className="lead">{t('about.mission.desc')}</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Principles */}
-            <section className="principles section">
-                <div className="container">
-                    <div className="section-header">
-                        <span className="mono accent">02</span>
-                        <h2>{t('about.principles.title')}</h2>
-                    </div>
-                    <div className="principles-grid">
-                        {principles.map((principle, index) => (
-                            <div key={principle.key} className="principle-card">
-                                <div className="principle-number mono accent">0{index + 1}</div>
-                                <span className="principle-icon">{principle.icon}</span>
-                                <p>{t(`about.principle.${principle.key}`)}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+      {/* Principles */}
+      <section className="principles section">
+        <div className="container">
+          <div className="section-header">
+            <span className="mono accent">02</span>
+            <h2>{t('about.principles.title')}</h2>
+          </div>
 
-            {/* Values */}
-            <section className="values section">
-                <div className="container">
-                    <div className="values-content">
-                        <div className="value-item">
-                            <h3>Neutrality</h3>
-                            <p>We maintain strict independence from brands and manufacturers to ensure unbiased information delivery.</p>
-                        </div>
-                        <div className="value-item">
-                            <h3>Transparency</h3>
-                            <p>Every piece of information we provide is traceable, verifiable, and free from hidden agendas.</p>
-                        </div>
-                        <div className="value-item">
-                            <h3>Compliance</h3>
-                            <p>We adhere to the highest global regulatory standards and continuously monitor for changes.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+          {/* Core Values moved here */}
+          <div className="values-content override-margin">
+            <div className="value-item">
+              <h3>{t('about.values.neutrality.title')}</h3>
+              <p>{t('about.values.neutrality.desc')}</p>
+            </div>
+            <div className="value-item">
+              <h3>{t('about.values.transparency.title')}</h3>
+              <p>{t('about.values.transparency.desc')}</p>
+            </div>
+            <div className="value-item">
+              <h3>{t('about.values.compliance.title')}</h3>
+              <p>{t('about.values.compliance.desc')}</p>
+            </div>
+          </div>
 
-            <style jsx>{`
+          <div className="principles-grid">
+            {principles.map((principle, index) => (
+              <div key={principle.key} className="principle-card">
+                <div className="principle-number mono accent">0{index + 1}</div>
+                <span className="principle-icon">{principle.icon}</span>
+                <p>{t(`about.principle.${principle.key}`)}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <style jsx>{`
         .page-hero {
           padding-top: 4rem;
           padding-bottom: 2rem;
@@ -111,6 +108,27 @@ export default function About() {
         .section-header .mono {
           display: block;
           margin-bottom: 0.5rem;
+        }
+
+        .values-content {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 2rem;
+          margin-bottom: 4rem;
+          padding-bottom: 3rem;
+          border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        .value-item h3 {
+          color: #64ffda;
+          margin-bottom: 1rem;
+          font-size: 1.25rem;
+        }
+        
+        .value-item p {
+          font-size: 0.95rem;
+          word-break: keep-all;
+          line-height: 1.6;
         }
 
         .principles-grid {
@@ -151,38 +169,18 @@ export default function About() {
           font-weight: 500;
         }
 
-        .values-content {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 3rem;
-        }
-
-        .value-item {
-          text-align: center;
-          padding: 2rem;
-        }
-
-        .value-item h3 {
-          color: #64ffda;
-          margin-bottom: 1rem;
-        }
-
         @media (max-width: 768px) {
           .mission-content {
             grid-template-columns: 1fr;
             gap: 2rem;
           }
 
-          .principles-grid {
-            grid-template-columns: 1fr;
-          }
-
+          .principles-grid,
           .values-content {
             grid-template-columns: 1fr;
-            gap: 2rem;
           }
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 }

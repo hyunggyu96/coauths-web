@@ -4,50 +4,50 @@ import Link from 'next/link';
 import { useTranslation } from '@/lib/i18n';
 
 export default function Footer() {
-    const { t } = useTranslation();
+  const { t } = useTranslation();
 
-    const quickLinks = [
-        { href: '/about', label: 'nav.about' },
-        { href: '/services', label: 'nav.services' },
-        { href: '/roadmap', label: 'nav.roadmap' },
-        { href: '/contact', label: 'nav.contact' },
-    ];
+  const quickLinks = [
+    { href: '/about', label: 'nav.about' },
+    { href: '/services', label: 'nav.services' },
+    { href: '/roadmap', label: 'nav.roadmap' },
+    { href: '/contact', label: 'nav.contact' },
+  ];
 
-    return (
-        <footer className="footer">
-            <div className="container">
-                <div className="footer-content">
-                    <div className="footer-brand">
-                        <Link href="/" className="logo">
-                            <span className="logo-text">AI</span>
-                            <span className="logo-accent">Sapiens</span>
-                        </Link>
-                        <p className="tagline">{t('footer.tagline')}</p>
-                    </div>
+  return (
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-content">
+          <div className="footer-brand">
+            <Link href="/" className="logo">
+              <span className="logo-text">Co</span>
+              <span className="logo-accent">Auths</span>
+            </Link>
+            <p className="tagline">{t('footer.tagline')}</p>
+          </div>
 
-                    <div className="footer-links">
-                        <h4>Quick Links</h4>
-                        <nav>
-                            {quickLinks.map((link) => (
-                                <Link key={link.href} href={link.href}>
-                                    {t(link.label)}
-                                </Link>
-                            ))}
-                        </nav>
-                    </div>
+          <div className="footer-links">
+            <h4>Quick Links</h4>
+            <nav>
+              {quickLinks.map((link) => (
+                <Link key={link.href} href={link.href}>
+                  {t(link.label)}
+                </Link>
+              ))}
+            </nav>
+          </div>
 
-                    <div className="footer-contact">
-                        <h4>Contact</h4>
-                        <p>hello@aisapiens.io</p>
-                    </div>
-                </div>
+          <div className="footer-contact">
+            <h4>Contact</h4>
+            <p>hello@coauths.io</p>
+          </div>
+        </div>
 
-                <div className="footer-bottom">
-                    <p>{t('footer.copyright')}</p>
-                </div>
-            </div>
+        <div className="footer-bottom">
+          <p>{t('footer.copyright')}</p>
+        </div>
+      </div>
 
-            <style jsx>{`
+      <style jsx>{`
         .footer {
           background: #112240;
           border-top: 1px solid rgba(100, 255, 218, 0.1);
@@ -142,6 +142,6 @@ export default function Footer() {
           }
         }
       `}</style>
-        </footer>
-    );
+    </footer>
+  );
 }

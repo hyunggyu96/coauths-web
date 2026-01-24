@@ -26,8 +26,8 @@ export default function Home() {
       <section className="hero section">
         <div className="container">
           <div className="hero-content">
-            <p className="mono accent">// Building Trust in Medical Aesthetics</p>
-            <h1>{t('hero.tagline')}</h1>
+            <p className="mono accent fade-in">CoAuths</p>
+            <h1 className="fade-in stagger-1" style={{ whiteSpace: 'pre-wrap' }}>{t('hero.tagline')}</h1>
             <p className="hero-description">{t('hero.description')}</p>
             <div className="hero-cta">
               <Link href="/services" className="btn btn-primary">
@@ -41,15 +41,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Problem Section */}
-      <section className="problems section">
+      {/* Problems */}
+      <section className="problems section bg-light">
         <div className="container">
-          <div className="section-header">
-            <p className="mono accent">// The Challenge</p>
-            <h2>{t('problem.title')}</h2>
+          <div className="section-header text-center">
+            <h2 className="section-title">{t('problem.title')}</h2>
             <p className="section-subtitle">{t('problem.subtitle')}</p>
           </div>
-          <div className="grid-2 stagger">
+
+          <div className="grid-4 stagger">
             {problems.map((problem) => (
               <div key={problem.key} className="card">
                 <span className="card-icon">{problem.icon}</span>
@@ -61,15 +61,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Solution Section */}
+      {/* Solutions */}
       <section className="solutions section">
         <div className="container">
-          <div className="section-header">
-            <p className="mono accent">// Our Approach</p>
-            <h2>{t('solution.title')}</h2>
+          <div className="section-header text-center">
+            <h2 className="section-title">{t('solution.title')}</h2>
             <p className="section-subtitle">{t('solution.subtitle')}</p>
           </div>
-          <div className="grid-2 stagger">
+
+          <div className="grid-4 stagger">
             {solutions.map((solution) => (
               <div key={solution.key} className="card solution-card">
                 <span className="card-icon">{solution.icon}</span>
@@ -86,7 +86,7 @@ export default function Home() {
         <div className="container">
           <div className="cta-content">
             <h2>Ready to learn more?</h2>
-            <p>Discover how AI Sapiens is building the future of trusted medical aesthetics information.</p>
+            <p>Discover how CoAuths is building the future of trusted medical aesthetics information.</p>
             <Link href="/contact" className="btn btn-primary">
               {t('hero.cta.secondary')}
             </Link>

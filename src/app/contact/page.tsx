@@ -4,136 +4,136 @@ import { useState } from 'react';
 import { useTranslation } from '@/lib/i18n';
 
 export default function Contact() {
-    const { t } = useTranslation();
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        company: '',
-        message: '',
+  const { t } = useTranslation();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    message: '',
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
     });
-    const [submitted, setSubmitted] = useState(false);
+  };
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-        });
-    };
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // In a real app, this would send to an API
+    console.log('Form submitted:', formData);
+    setSubmitted(true);
+  };
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        // In a real app, this would send to an API
-        console.log('Form submitted:', formData);
-        setSubmitted(true);
-    };
+  return (
+    <div className="contact">
+      {/* Hero */}
+      <section className="page-hero section">
+        <div className="container">
+          <p className="mono accent">// Get in Touch</p>
+          <h1>{t('contact.title')}</h1>
+          <p className="page-subtitle">{t('contact.subtitle')}</p>
+        </div>
+      </section>
 
-    return (
-        <div className="contact">
-            {/* Hero */}
-            <section className="page-hero section">
-                <div className="container">
-                    <p className="mono accent">// Get in Touch</p>
-                    <h1>{t('contact.title')}</h1>
-                    <p className="page-subtitle">{t('contact.subtitle')}</p>
+      {/* Contact Form */}
+      <section className="contact-section section">
+        <div className="container">
+          <div className="contact-grid">
+            <div className="contact-form-wrapper">
+              {submitted ? (
+                <div className="success-message">
+                  <span className="success-icon">✓</span>
+                  <h3>Message Sent!</h3>
+                  <p>Thank you for reaching out. We&apos;ll get back to you soon.</p>
                 </div>
-            </section>
+              ) : (
+                <form onSubmit={handleSubmit} className="contact-form">
+                  <div className="form-group">
+                    <label htmlFor="name">{t('contact.form.name')}</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="email">{t('contact.form.email')}</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="company">{t('contact.form.company')}</label>
+                    <input
+                      type="text"
+                      id="company"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="message">{t('contact.form.message')}</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={5}
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <button type="submit" className="btn btn-primary submit-btn">
+                    {t('contact.form.submit')}
+                  </button>
+                </form>
+              )}
+            </div>
 
-            {/* Contact Form */}
-            <section className="contact-section section">
-                <div className="container">
-                    <div className="contact-grid">
-                        <div className="contact-form-wrapper">
-                            {submitted ? (
-                                <div className="success-message">
-                                    <span className="success-icon">✓</span>
-                                    <h3>Message Sent!</h3>
-                                    <p>Thank you for reaching out. We&apos;ll get back to you soon.</p>
-                                </div>
-                            ) : (
-                                <form onSubmit={handleSubmit} className="contact-form">
-                                    <div className="form-group">
-                                        <label htmlFor="name">{t('contact.form.name')}</label>
-                                        <input
-                                            type="text"
-                                            id="name"
-                                            name="name"
-                                            value={formData.name}
-                                            onChange={handleChange}
-                                            required
-                                        />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="email">{t('contact.form.email')}</label>
-                                        <input
-                                            type="email"
-                                            id="email"
-                                            name="email"
-                                            value={formData.email}
-                                            onChange={handleChange}
-                                            required
-                                        />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="company">{t('contact.form.company')}</label>
-                                        <input
-                                            type="text"
-                                            id="company"
-                                            name="company"
-                                            value={formData.company}
-                                            onChange={handleChange}
-                                        />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="message">{t('contact.form.message')}</label>
-                                        <textarea
-                                            id="message"
-                                            name="message"
-                                            rows={5}
-                                            value={formData.message}
-                                            onChange={handleChange}
-                                            required
-                                        />
-                                    </div>
-                                    <button type="submit" className="btn btn-primary submit-btn">
-                                        {t('contact.form.submit')}
-                                    </button>
-                                </form>
-                            )}
-                        </div>
-
-                        <div className="contact-info">
-                            <h3>{t('contact.info.title')}</h3>
-                            <div className="info-items">
-                                <div className="info-item">
-                                    <span className="info-icon">📧</span>
-                                    <div>
-                                        <p className="info-label">Email</p>
-                                        <p className="info-value">hello@aisapiens.io</p>
-                                    </div>
-                                </div>
-                                <div className="info-item">
-                                    <span className="info-icon">🌐</span>
-                                    <div>
-                                        <p className="info-label">Website</p>
-                                        <p className="info-value">www.aisapiens.io</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="trust-badges">
-                                <p className="mono accent">// Our Commitment</p>
-                                <ul>
-                                    <li>No brand advertising</li>
-                                    <li>No marketing data usage</li>
-                                    <li>AI ethics compliance</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+            <div className="contact-info">
+              <h3>{t('contact.info.title')}</h3>
+              <div className="info-items">
+                <div className="info-item">
+                  <span className="info-icon">📧</span>
+                  <div>
+                    <p className="info-label">Email</p>
+                    <p className="info-value">hello@coauths.io</p>
+                  </div>
                 </div>
-            </section>
+                <div className="info-item">
+                  <span className="info-icon">🌐</span>
+                  <div>
+                    <p className="info-label">Website</p>
+                    <p className="info-value">www.coauths.io</p>
+                  </div>
+                </div>
+              </div>
 
-            <style jsx>{`
+              <div className="trust-badges">
+                <p className="mono accent">// Our Commitment</p>
+                <ul>
+                  <li>No brand advertising</li>
+                  <li>No marketing data usage</li>
+                  <li>AI ethics compliance</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <style jsx>{`
         .page-hero {
           padding-top: 4rem;
           padding-bottom: 2rem;
@@ -297,6 +297,6 @@ export default function Contact() {
           }
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 }

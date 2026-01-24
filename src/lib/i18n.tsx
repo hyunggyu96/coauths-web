@@ -22,7 +22,7 @@ const translations: Translations = {
     // Hero Section
     'hero.tagline': {
         en: 'Transparency Without Ads, Trust Guaranteed by AI',
-        ko: '광고 없는 투명성, AI가 보증하는 신뢰성'
+        ko: '광고 없는 투명성,\nAI가 보증하는 신뢰성'
     },
     'hero.description': {
         en: 'The neutral information hub for the medical aesthetics and medical device industry.',
@@ -86,7 +86,7 @@ const translations: Translations = {
     },
 
     // About Page
-    'about.title': { en: 'About AI Sapiens', ko: 'AI Sapiens 소개' },
+    'about.title': { en: 'About CoAuths', ko: 'CoAuths 소개' },
     'about.mission.title': { en: 'Our Mission', ko: '우리의 미션' },
     'about.mission.desc': {
         en: 'In a global medical aesthetics market plagued by information asymmetry, we build a Single Source of Truth that all stakeholders can trust.',
@@ -98,25 +98,42 @@ const translations: Translations = {
     'about.principle.3': { en: 'Strict compliance with global regulations and AI ethics', ko: '글로벌 규제 및 AI 윤리 기준 엄격 준수' },
     'about.principle.4': { en: 'Transparency in AI decision-making processes', ko: 'AI 판단 과정의 투명성 확보' },
 
+    // About Page Values
+    'about.values.neutrality.title': { en: 'Neutrality', ko: '중립성' },
+    'about.values.neutrality.desc': {
+        en: 'We maintain strict independence from brands and manufacturers to ensure unbiased information delivery.',
+        ko: '우리는 편향되지 않은 정보 제공을 위해 브랜드 및 제조사로부터 엄격한 독립성을 유지합니다.'
+    },
+    'about.values.transparency.title': { en: 'Transparency', ko: '투명성' },
+    'about.values.transparency.desc': {
+        en: 'Every piece of information we provide is traceable, verifiable, and free from hidden agendas.',
+        ko: '제공되는 모든 정보는 출처 추적과 검증이 가능하며 숨겨진 의도가 없습니다.'
+    },
+    'about.values.compliance.title': { en: 'Compliance', ko: '규제 준수' },
+    'about.values.compliance.desc': {
+        en: 'We adhere to the highest global regulatory standards and continuously monitor for changes.',
+        ko: '최고 수준의 글로벌 규제 표준을 준수하며 변경 사항을 지속적으로 모니터링합니다.'
+    },
+
     // Services Page
     'services.title': { en: 'Our Services', ko: '서비스' },
-    'services.aip.title': { en: 'Aesthetic Intelligence Platform', ko: 'Aesthetic Intelligence Platform' },
-    'services.aip.subtitle': { en: 'AIP', ko: 'AIP' },
+    'services.aip.title': { en: 'AIP - Aesthetic Intelligence Platform', ko: 'AIP - Aesthetic Intelligence Platform' },
+    // 'services.aip.subtitle': Removed
     'services.aip.desc': {
-        en: 'RAG-based integration of global news, financial disclosures, and academic data. Automatic difficulty-level separation for professionals and consumers. AI-powered advertising content blocking.',
-        ko: '글로벌 뉴스·재무공시·학술 데이터 RAG 기반 통합. 의사용/일반인용 자동 난이도 분리 요약. AI 광고성 콘텐츠 차단.'
+        en: 'RAG-based integration of regulations, brand news, corporate news, financial disclosures, and academic data. Automatic difficulty-level separation for professionals and consumers. Advertisement free platform.',
+        ko: '규제, 브랜드 뉴스, 기업 뉴스, 재무 공시 및 학술 데이터의 RAG 기반 통합. 전문가와 소비자를 위한 자동 난이도 분리. 광고 없는 플랫폼.'
     },
-    'services.cosmos.title': { en: 'Cosmos', ko: 'Cosmos' },
-    'services.cosmos.subtitle': { en: 'AI Authentication System', ko: 'AI 정품 인증 시스템' },
+    'services.cosmos.title': { en: 'Cosmos - AI Authentication System', ko: 'Cosmos - AI Authentication System' },
+    // 'services.cosmos.subtitle': Removed
     'services.cosmos.desc': {
         en: 'Vision scan + NFC/RFID hybrid authentication. Authenticity verification without direct access to manufacturing databases. Automatic alerts and regulatory response support.',
         ko: '비전 스캔 + NFC/RFID 하이브리드 인증. 제조·유통 DB 직접 접근 없이 진위 판별. 정품/가품에 따른 자동 알람 및 규제 대응 지원.'
     },
-    'services.crm.title': { en: 'Adaptive AI CRM', ko: 'Adaptive AI CRM' },
-    'services.crm.subtitle': { en: 'Compliance-First CRM', ko: '컴플라이언스 우선 CRM' },
+    'services.crm.title': { en: 'AIP CRM - Adaptive and Easy-use System', ko: 'AIP CRM - Adaptive and Easy-use System' },
+    // 'services.crm.subtitle': Removed
     'services.crm.desc': {
-        en: 'Automatic CRM optimization by clinic size. Real-time medical device and pharmaceutical regulatory compliance monitoring. Built-in AI governance and data security.',
-        ko: '클리닉 규모별 CRM 자동 최적화. 실시간 의료기기·의약품 규제 준수 모니터링. AI 거버넌스 및 데이터 보안 내재화.'
+        en: 'Customized CRM optimization by clinic size. Real-time medical device and pharmaceutical regulatory compliance monitoring. Built-in AI governance and data security.',
+        ko: '클리닉 규모별 맞춤형 CRM 최적화. 실시간 의료기기·의약품 규제 준수 모니터링. AI 거버넌스 및 데이터 보안 내재화.'
     },
 
     // Roadmap Page
@@ -147,8 +164,8 @@ const translations: Translations = {
 
     // Footer
     'footer.copyright': {
-        en: '© 2026 AI Sapiens. All rights reserved.',
-        ko: '© 2026 AI Sapiens. All rights reserved.'
+        en: '© 2026 CoAuths. All rights reserved.',
+        ko: '© 2026 CoAuths. All rights reserved.'
     },
     'footer.tagline': {
         en: 'Transparency Without Ads, Trust Guaranteed by AI',

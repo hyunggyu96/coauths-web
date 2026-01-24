@@ -63,6 +63,8 @@ h6 {
   color: var(--color-white);
   font-weight: 600;
   line-height: 1.2;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 h1 {
@@ -83,6 +85,8 @@ p {
   color: var(--color-text-muted);
   font-size: 1rem;
   line-height: 1.75;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 /* Links */
@@ -180,6 +184,24 @@ a:hover {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 /* Fade In Animation */

@@ -16,18 +16,18 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AI Sapiens | Transparency Without Ads, Trust Guaranteed by AI",
+  title: "CoAuths | Transparency Without Ads, Trust Guaranteed by AI",
   description: "The neutral information hub for the medical aesthetics and medical device industry. Building a Single Source of Truth that all stakeholders can trust.",
   keywords: "medical aesthetics, AI, healthcare, medical devices, compliance, transparency",
   openGraph: {
-    title: "AI Sapiens",
+    title: "CoAuths",
     description: "Transparency Without Ads, Trust Guaranteed by AI",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Sapiens",
+    title: "CoAuths",
     description: "Transparency Without Ads, Trust Guaranteed by AI",
   },
 };
