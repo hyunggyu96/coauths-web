@@ -115,6 +115,33 @@ a:hover {
   padding: var(--section-padding) 0;
 }
 
+.section-white {
+  background-color: var(--color-white);
+}
+
+.section-light {
+  background-color: var(--color-background);
+}
+
+.section-title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background-color: var(--color-accent);
+  border-radius: 2px;
+}
+
 /* Accent Text */
 .accent {
   color: var(--color-accent);

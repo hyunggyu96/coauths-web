@@ -42,7 +42,7 @@ export default function Home() {
       </section>
 
       {/* Problems */}
-      <section className="problems section bg-light">
+      <section className="problems section section-white">
         <div className="container">
           <div className="section-header text-center">
             <h2 className="section-title">{t('problem.title')}</h2>
@@ -62,7 +62,7 @@ export default function Home() {
       </section>
 
       {/* Solutions */}
-      <section className="solutions section">
+      <section className="solutions section section-light">
         <div className="container">
           <div className="section-header text-center">
             <h2 className="section-title">{t('solution.title')}</h2>
@@ -82,7 +82,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="cta-section section">
+      <section className="cta-section section section-white">
         <div className="container">
           <div className="cta-content">
             <h2>Ready to learn more?</h2>
