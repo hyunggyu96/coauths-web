@@ -112,16 +112,19 @@ export default function Header() {
 
         .logo {
           font-size: 1.5rem;
-          font-weight: 700;
+          font-weight: 800;
           text-decoration: none;
+          letter-spacing: -0.02em;
         }
 
         .logo-text {
           color: #222F30;
+          font-weight: 800;
         }
 
         .logo-accent {
           color: #84AA73;
+          font-weight: 800;
         }
 
         .nav-links {
@@ -130,7 +133,7 @@ export default function Header() {
         }
 
         .nav-link {
-          color: #5A6B6C;
+          color: #7F7F7F;
           font-size: 0.875rem;
           font-weight: 500;
           transition: color 0.3s ease;
@@ -138,7 +141,7 @@ export default function Header() {
 
         .nav-link:hover,
         .nav-link.active {
-          color: #84AA73;
+          color: #222F30;
         }
 
         .nav-actions {
@@ -149,27 +152,28 @@ export default function Header() {
 
         .lang-toggle {
           background: transparent;
-          border: 1px solid rgba(132, 170, 115, 0.3);
+          border: 1px solid rgba(127, 127, 127, 0.3);
           border-radius: 4px;
           padding: 0.5rem 0.75rem;
           font-size: 0.75rem;
           font-family: 'Noto Sans', sans-serif;
-          color: #5A6B6C;
+          color: #7F7F7F;
           cursor: pointer;
           transition: all 0.3s ease;
         }
 
         .lang-toggle:hover {
-          border-color: #84AA73;
+          border-color: #222F30;
         }
 
         .lang-toggle span.active {
-          color: #84AA73;
+          color: #222F30;
+          font-weight: 600;
         }
 
         .lang-toggle .divider {
           margin: 0 0.25rem;
-          color: #5A6B6C;
+          color: #7F7F7F;
         }
 
         .mobile-menu-btn {
@@ -190,7 +194,7 @@ export default function Header() {
         .hamburger span {
           display: block;
           height: 2px;
-          background: #84AA73;
+          background: #222F30;
           transition: all 0.3s ease;
         }
 
@@ -247,8 +251,8 @@ export default function Header() {
           .mobile-nav-link {
             padding: 0.75rem 0;
             font-size: 1.1rem;
-            color: #222F30;
-            border-bottom: 1px solid rgba(132, 170, 115, 0.1);
+            color: #7F7F7F;
+            border-bottom: 1px solid rgba(127, 127, 127, 0.1);
             opacity: 0;
             text-align: left;
             margin-left: 1rem;
@@ -260,7 +264,7 @@ export default function Header() {
 
           .mobile-nav-link:hover,
           .mobile-nav-link.active {
-            color: #84AA73;
+            color: #222F30;
           }
 
           .mobile-nav-link .mono {

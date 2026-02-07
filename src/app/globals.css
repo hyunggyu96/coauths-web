@@ -1,32 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  /* Color Palette - New Brand Colors */
+  /* Color Palette - Brand Colors */
+  /* 배경색 */
+  --color-background: #E7E8E1;
   --color-primary: #E7E8E1;
-  /* Light background */
   --color-primary-light: #F5F5F2;
-  /* Slightly lighter */
-  --color-primary-dark: #222F30;
-  /* Dark accent */
-  --color-accent: #84AA73;
-  /* Green accent */
-  --color-accent-muted: rgba(132, 170, 115, 0.2);
-  --color-text: #222F30;
-  /* Dark text */
-  --color-text-muted: #5A6B6C;
-  /* Muted text */
   --color-white: #FFFFFF;
+
+  /* 키 메시지 컬러 */
+  --color-primary-dark: #222F30;
+  --color-accent: #84AA73;
+  --color-accent-muted: rgba(132, 170, 115, 0.15);
   --color-heading: #222F30;
-  --color-slate-50: #f8fafc;
-  --color-slate-100: #f1f5f9;
-  --color-slate-200: #e2e8f0;
-  --color-slate-300: #cbd5e1;
-  --color-slate-400: #94a3b8;
-  --color-slate-500: #64748b;
-  --color-slate-600: #475569;
-  --color-slate-700: #334155;
-  --color-slate-800: #1e293b;
-  --color-slate-900: #0f172a;
+
+  /* 텍스트 컬러 */
+  --color-text: #222F30;
+  --color-text-muted: #7F7F7F;
+  /* 부가 설명 */
+  --color-text-light: #999999;
 
   /* Typography */
   --font-sans: 'Noto Sans', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -54,7 +46,7 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background: var(--color-primary);
+  background: var(--color-background);
   color: var(--color-text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
