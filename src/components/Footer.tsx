@@ -49,8 +49,8 @@ export default function Footer() {
 
       <style jsx>{`
         .footer {
-          background: #112240;
-          border-top: 1px solid rgba(100, 255, 218, 0.1);
+          background: #222F30;
+          border-top: 1px solid rgba(132, 170, 115, 0.2);
           padding: 4rem 0 2rem;
           margin-top: auto;
         }
@@ -71,22 +71,22 @@ export default function Footer() {
         }
 
         .logo-text {
-          color: #e6f1ff;
+          color: #FFFFFF;
         }
 
         .logo-accent {
-          color: #64ffda;
+          color: #84AA73;
         }
 
         .tagline {
-          color: #8892b0;
+          color: #999999;
           font-size: 0.875rem;
           max-width: 300px;
         }
 
         .footer-links h4,
         .footer-contact h4 {
-          color: #e6f1ff;
+          color: #FFFFFF;
           font-size: 0.875rem;
           font-weight: 600;
           margin-bottom: 1rem;
@@ -101,28 +101,28 @@ export default function Footer() {
         }
 
         .footer-links a {
-          color: #8892b0;
+          color: #999999;
           font-size: 0.875rem;
           transition: color 0.3s ease;
         }
 
         .footer-links a:hover {
-          color: #64ffda;
+          color: #84AA73;
         }
 
         .footer-contact p {
-          color: #8892b0;
+          color: #999999;
           font-size: 0.875rem;
         }
 
         .footer-bottom {
           padding-top: 2rem;
-          border-top: 1px solid rgba(100, 255, 218, 0.1);
+          border-top: 1px solid rgba(132, 170, 115, 0.2);
           text-align: center;
         }
 
         .footer-bottom p {
-          color: #8892b0;
+          color: #999999;
           font-size: 0.75rem;
         }
 

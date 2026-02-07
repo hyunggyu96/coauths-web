@@ -121,7 +121,7 @@ export default function Services() {
           gap: 4rem;
           align-items: center;
           padding: 4rem 0;
-          border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+          border-bottom: 1px solid rgba(132, 170, 115, 0.2);
         }
 
         .service-block:last-child {
@@ -146,9 +146,10 @@ export default function Services() {
         .service-icon-large {
           width: 200px;
           height: 200px;
-          background: linear-gradient(135deg, #112240 0%, #0a192f 100%);
-          border: 1px solid rgba(100, 255, 218, 0.2);
+          background: linear-gradient(135deg, #84AA73 0%, #6d905d 100%);
+          border: 1px solid rgba(132, 170, 115, 0.2);
           border-radius: 50%;
+          color: #FFFFFF;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -160,7 +161,7 @@ export default function Services() {
           top: 0;
           right: 2rem;
           font-size: 4rem;
-          color: rgba(100, 255, 218, 0.1);
+          color: rgba(132, 170, 115, 0.15);
           font-weight: 700;
         }
 
@@ -197,12 +198,13 @@ export default function Services() {
           display: flex;
           align-items: center;
           gap: 0.75rem;
-          color: #ccd6f6;
+          gap: 0.75rem;
+          color: #7F7F7F;
           padding: 0.5rem 0;
         }
 
         .check {
-          color: #64ffda;
+          color: #84AA73;
           font-weight: 600;
         }
 
@@ -222,8 +224,8 @@ export default function Services() {
           width: 48px;  /* Fixed width */
           height: 48px; /* Fixed height */
           border-radius: 8px; /* Slightly rounded */
-          border: 1px solid #64ffda;
-          color: #64ffda;
+          border: 1px solid #84AA73;
+          color: #84AA73;
           transition: all 0.3s ease;
           font-family: monospace;
           background: transparent;

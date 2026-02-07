@@ -155,7 +155,18 @@ export default function Home() {
         }
 
         .solution-card {
-          border-left: 3px solid #84AA73;
+          background: #84AA73;
+          border: none;
+          color: #FFFFFF;
+        }
+
+        .solution-card h3,
+        .solution-card p {
+          color: #FFFFFF !important;
+        }
+
+        .solution-card .card-icon {
+          color: #FFFFFF;
         }
 
         .cta-section {
