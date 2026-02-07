@@ -23,7 +23,7 @@ export default function Header() {
   };
 
   return (
-    <header className="header">
+    <header className={`header ${mobileMenuOpen ? 'mobile-open' : ''}`}>
       <nav className="nav container">
         <Link href="/" className="logo">
           <span className="logo-text">Co</span>
@@ -78,7 +78,6 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <span className="mono accent">0{index + 1}.</span>
               {t(link.label)}
             </Link>
           ))}
@@ -95,6 +94,13 @@ export default function Header() {
           background: rgba(10, 25, 47, 0.85);
           backdrop-filter: blur(10px);
           border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+          transition: background-color 0.3s ease;
+        }
+
+        .header.mobile-open {
+          background: #0a192f;
+          backdrop-filter: none;
+          border-bottom: none;
         }
 
         .nav {
@@ -218,13 +224,20 @@ export default function Header() {
             flex-direction: column;
             position: fixed;
             top: 70px;
-            left: 0;
             right: 0;
-            bottom: 0;
-            background: rgba(10, 25, 47, 0.98);
-            padding: 2rem;
+            left: auto;
+            width: auto;
+            min-width: 180px;
+            max-width: 300px;
+            background-color: #0a192f;
+            z-index: 99;
+            padding: 1rem 2rem 1.5rem;
+            border-left: 1px solid rgba(100, 255, 218, 0.1);
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+            border-bottom-left-radius: 12px;
+            box-shadow: -10px 10px 30px -10px rgba(2, 12, 27, 0.7);
             transform: translateX(100%);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
           }
 
           .mobile-nav.open {
@@ -232,12 +245,17 @@ export default function Header() {
           }
 
           .mobile-nav-link {
-            padding: 1rem 0;
-            font-size: 1.25rem;
+            padding: 0.75rem 0;
+            font-size: 1.1rem;
             color: #ccd6f6;
-            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+            border-bottom: 1px solid rgba(100, 255, 218, 0.05);
             opacity: 0;
-            animation: slideIn 0.3s ease forwards;
+            text-align: left;
+            margin-left: 1rem;
+          }
+
+          .mobile-nav-link:last-child {
+            border-bottom: none;
           }
 
           .mobile-nav-link:hover,

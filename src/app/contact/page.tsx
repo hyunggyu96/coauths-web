@@ -108,14 +108,14 @@ export default function Contact() {
                   <span className="info-icon">📧</span>
                   <div>
                     <p className="info-label">Email</p>
-                    <p className="info-value">hello@coauths.io</p>
+                    <p className="info-value">jonathan@coauths.com</p>
                   </div>
                 </div>
                 <div className="info-item">
                   <span className="info-icon">🌐</span>
                   <div>
                     <p className="info-label">Website</p>
-                    <p className="info-value">www.coauths.io</p>
+                    <p className="info-value">www.coauths.com</p>
                   </div>
                 </div>
               </div>
