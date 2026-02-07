@@ -27,7 +27,7 @@ export default function Home() {
         <div className="container">
           <div className="hero-content">
             <p className="mono accent fade-in">CoAuths</p>
-            <h1 className="fade-in stagger-1" style={{ whiteSpace: 'pre-wrap' }}>{t('hero.tagline')}</h1>
+            <h1 className="fade-in stagger-1 text-gradient" style={{ whiteSpace: 'pre-wrap' }}>{t('hero.tagline')}</h1>
             <p className="hero-description">{t('hero.description')}</p>
             <div className="hero-cta">
               <Link href="/services" className="btn btn-primary">
@@ -50,9 +50,9 @@ export default function Home() {
           </div>
 
           <div className="grid-4 stagger">
-            {problems.map((problem) => (
-              <div key={problem.key} className="card">
-                <span className="card-icon">{problem.icon}</span>
+            {problems.map((problem, index) => (
+              <div key={problem.key} className="card" style={{ animationDelay: `${index * 0.1}s` }}>
+                <span className="card-icon animate-float" style={{ animationDelay: `${index * 0.5}s` }}>{problem.icon}</span>
                 <h3>{t(`problem.${problem.key}.title`)}</h3>
                 <p>{t(`problem.${problem.key}.desc`)}</p>
               </div>
@@ -100,6 +100,7 @@ export default function Home() {
           display: flex;
           align-items: center;
           text-align: center;
+          background: radial-gradient(circle at 50% 50%, rgba(100, 255, 218, 0.05) 0%, transparent 50%);
         }
 
         .hero-content {

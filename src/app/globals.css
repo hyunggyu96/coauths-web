@@ -284,3 +284,34 @@ a:hover {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-slate-600);
 }
+
+/* Animations & Effects */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-white) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-gradient-glow {
+  background: radial-gradient(circle at center, rgba(100, 255, 218, 0.15) 0%, transparent 70%);
+}
