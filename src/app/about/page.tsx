@@ -139,13 +139,13 @@ export default function About() {
         }
 
         .principle-card {
-          background: #84AA73;
+          background: #84AA73 !important;
           border: 1px solid rgba(132, 170, 115, 0.2);
           border-radius: 8px;
           padding: 2rem;
           position: relative;
           transition: all 0.3s ease;
-          color: #FFFFFF;
+          color: #FFFFFF !important;
         }
 
         .principle-card:hover {
@@ -169,7 +169,7 @@ export default function About() {
         }
 
         .principle-card p {
-          color: #FFFFFF;
+          color: #FFFFFF !important;
           font-weight: 500;
         }
 
