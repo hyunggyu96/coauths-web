@@ -98,7 +98,8 @@ export default function About() {
         .mission-text .lead {
           font-size: 1.5rem;
           line-height: 1.6;
-          color: #ccd6f6;
+          color: #7F7F7F;
+          font-weight: 500;
         }
 
         .section-header {
@@ -116,11 +117,11 @@ export default function About() {
           gap: 2rem;
           margin-bottom: 4rem;
           padding-bottom: 3rem;
-          border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+          border-bottom: 1px solid rgba(132, 170, 115, 0.2);
         }
 
         .value-item h3 {
-          color: #64ffda;
+          color: #222F30;
           margin-bottom: 1rem;
           font-size: 1.25rem;
         }
@@ -138,16 +139,17 @@ export default function About() {
         }
 
         .principle-card {
-          background: #112240;
-          border: 1px solid rgba(100, 255, 218, 0.1);
+          background: #84AA73;
+          border: 1px solid rgba(132, 170, 115, 0.2);
           border-radius: 8px;
           padding: 2rem;
           position: relative;
           transition: all 0.3s ease;
+          color: #FFFFFF;
         }
 
         .principle-card:hover {
-          border-color: rgba(100, 255, 218, 0.3);
+          border-color: rgba(255, 255, 255, 0.5);
           transform: translateY(-4px);
         }
 
@@ -156,16 +158,18 @@ export default function About() {
           top: 1rem;
           right: 1rem;
           font-size: 0.75rem;
+          color: rgba(255, 255, 255, 0.8);
         }
 
         .principle-icon {
           font-size: 2rem;
           display: block;
           margin-bottom: 1rem;
+          color: #FFFFFF;
         }
 
         .principle-card p {
-          color: #e6f1ff;
+          color: #FFFFFF;
           font-weight: 500;
         }
 
