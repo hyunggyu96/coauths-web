@@ -2,22 +2,23 @@
 
 import Link from 'next/link';
 import { useTranslation } from '@/lib/i18n';
+import { BarChart3, Megaphone, Globe, AlertTriangle, ShieldCheck, Bot, RefreshCw, CheckCircle2 } from 'lucide-react';
 
 export default function Home() {
   const { t } = useTranslation();
 
   const problems = [
-    { key: '1', icon: '📊' },
-    { key: '2', icon: '📢' },
-    { key: '3', icon: '🌐' },
-    { key: '4', icon: '⚠️' },
+    { key: '1', icon: <BarChart3 size={40} strokeWidth={1.5} color="#84AA73" /> },
+    { key: '2', icon: <Megaphone size={40} strokeWidth={1.5} color="#84AA73" /> },
+    { key: '3', icon: <Globe size={40} strokeWidth={1.5} color="#84AA73" /> },
+    { key: '4', icon: <AlertTriangle size={40} strokeWidth={1.5} color="#84AA73" /> },
   ];
 
   const solutions = [
-    { key: '1', icon: '🚫' },
-    { key: '2', icon: '🤖' },
-    { key: '3', icon: '🔄' },
-    { key: '4', icon: '✅' },
+    { key: '1', icon: <ShieldCheck size={40} strokeWidth={1.5} color="#FFFFFF" /> },
+    { key: '2', icon: <Bot size={40} strokeWidth={1.5} color="#FFFFFF" /> },
+    { key: '3', icon: <RefreshCw size={40} strokeWidth={1.5} color="#FFFFFF" /> },
+    { key: '4', icon: <CheckCircle2 size={40} strokeWidth={1.5} color="#FFFFFF" /> },
   ];
 
   return (
@@ -54,7 +55,7 @@ export default function Home() {
           <div className="grid-4 stagger">
             {problems.map((problem, index) => (
               <div key={problem.key} className="card" style={{ animationDelay: `${index * 0.1}s` }}>
-                <span className="card-icon animate-float" style={{ animationDelay: `${index * 0.5}s` }}>{problem.icon}</span>
+                <div className="card-icon" style={{ animationDelay: `${index * 0.5}s` }}>{problem.icon}</div>
                 <h3>{t(`problem.${problem.key}.title`)}</h3>
                 <p>{t(`problem.${problem.key}.desc`)}</p>
               </div>
@@ -76,7 +77,7 @@ export default function Home() {
           <div className="grid-4 stagger">
             {solutions.map((solution) => (
               <div key={solution.key} className="card solution-card">
-                <span className="card-icon">{solution.icon}</span>
+                <div className="card-icon">{solution.icon}</div>
                 <h3>{t(`solution.${solution.key}.title`)}</h3>
                 <p>{t(`solution.${solution.key}.desc`)}</p>
               </div>

@@ -1,15 +1,16 @@
 'use client';
 
 import { useTranslation } from '@/lib/i18n';
+import { Syringe, Droplets, Zap, Sparkles } from 'lucide-react';
 
 export default function Roadmap() {
   const { t } = useTranslation();
 
   const focusAreas = [
-    { key: 'item1', icon: '💉' },
-    { key: 'item2', icon: '💧' },
-    { key: 'item3', icon: '⚡' },
-    { key: 'item4', icon: '✨' },
+    { key: 'item1', icon: <Syringe size={24} strokeWidth={1.5} color="#FFFFFF" /> },
+    { key: 'item2', icon: <Droplets size={24} strokeWidth={1.5} color="#FFFFFF" /> },
+    { key: 'item3', icon: <Zap size={24} strokeWidth={1.5} color="#FFFFFF" /> },
+    { key: 'item4', icon: <Sparkles size={24} strokeWidth={1.5} color="#FFFFFF" /> },
   ];
 
   return (
@@ -47,7 +48,7 @@ export default function Roadmap() {
                   <div className="focus-grid">
                     {focusAreas.map((item) => (
                       <div key={item.key} className="focus-item">
-                        <span className="focus-icon">{item.icon}</span>
+                        <div className="focus-icon">{item.icon}</div>
                         <span>{t(`roadmap.phase1.${item.key}`)}</span>
                       </div>
                     ))}
