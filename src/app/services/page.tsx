@@ -44,7 +44,6 @@ export default function Services() {
       {/* Hero */}
       <section className="page-hero section">
         <div className="container">
-          <p className="mono accent">// What We Build</p>
           <h1>{t('services.title')}</h1>
           <p className="page-subtitle">
             Comprehensive solutions for trusted medical aesthetics information

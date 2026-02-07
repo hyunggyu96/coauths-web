@@ -26,7 +26,7 @@ export default function Home() {
       <section className="hero section">
         <div className="container">
           <div className="hero-content">
-            <p className="mono accent fade-in">CoAuths</p>
+
             <h1 className="fade-in stagger-1 text-gradient" style={{ whiteSpace: 'pre-wrap' }}>{t('hero.tagline')}</h1>
             <p className="hero-description">{t('hero.description')}</p>
             <div className="hero-cta">
@@ -41,8 +41,10 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="section-divider"></div>
+
       {/* Problems */}
-      <section className="problems section section-white">
+      <section className="problems section">
         <div className="container">
           <div className="section-header text-center">
             <h2 className="section-title">{t('problem.title')}</h2>
@@ -61,8 +63,10 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="section-divider"></div>
+
       {/* Solutions */}
-      <section className="solutions section section-light">
+      <section className="solutions section">
         <div className="container">
           <div className="section-header text-center">
             <h2 className="section-title">{t('solution.title')}</h2>
@@ -81,8 +85,10 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="section-divider"></div>
+
       {/* CTA Section */}
-      <section className="cta-section section section-white">
+      <section className="cta-section section">
         <div className="container">
           <div className="cta-content">
             <h2>Ready to learn more?</h2>

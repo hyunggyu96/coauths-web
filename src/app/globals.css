@@ -116,8 +116,19 @@ a:hover {
 }
 
 .section-white {
-  background-color: var(--color-white);
+  background-color: var(--color-background);
 }
+
+.section-divider {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  height: 2px;
+  background-color: var(--color-accent);
+  opacity: 0.5;
+  border: none;
+}
+
 
 .section-light {
   background-color: var(--color-background);

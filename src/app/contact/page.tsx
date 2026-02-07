@@ -32,7 +32,7 @@ export default function Contact() {
       {/* Hero */}
       <section className="page-hero section">
         <div className="container">
-          <p className="mono accent">// Get in Touch</p>
+
           <h1>{t('contact.title')}</h1>
           <p className="page-subtitle">{t('contact.subtitle')}</p>
         </div>
@@ -121,7 +121,6 @@ export default function Contact() {
               </div>
 
               <div className="trust-badges">
-                <p className="mono accent">// Our Commitment</p>
                 <ul>
                   <li>No brand advertising</li>
                   <li>No marketing data usage</li>
@@ -159,10 +158,11 @@ export default function Contact() {
         }
 
         .contact-form {
-          background: #112240;
-          border: 1px solid rgba(100, 255, 218, 0.1);
+          background: #FFFFFF;
+          border: 1px solid rgba(132, 170, 115, 0.4);
           border-radius: 8px;
           padding: 2.5rem;
+          box-shadow: 0 4px 6px -1px rgba(34, 47, 48, 0.05);
         }
 
         .form-group {
@@ -172,7 +172,7 @@ export default function Contact() {
         .form-group label {
           display: block;
           margin-bottom: 0.5rem;
-          color: #ccd6f6;
+          color: #222F30;
           font-size: 0.875rem;
           font-weight: 500;
         }
@@ -181,10 +181,10 @@ export default function Contact() {
         .form-group textarea {
           width: 100%;
           padding: 0.875rem 1rem;
-          background: #0a192f;
-          border: 1px solid rgba(100, 255, 218, 0.2);
+          background: #FFFFFF;
+          border: 1px solid rgba(132, 170, 115, 0.3);
           border-radius: 4px;
-          color: #e6f1ff;
+          color: #222F30;
           font-size: 1rem;
           font-family: inherit;
           transition: border-color 0.3s ease;
@@ -193,7 +193,7 @@ export default function Contact() {
         .form-group input:focus,
         .form-group textarea:focus {
           outline: none;
-          border-color: #64ffda;
+          border-color: #84AA73;
         }
 
         .form-group textarea {
@@ -258,13 +258,14 @@ export default function Contact() {
         }
 
         .info-value {
-          color: #e6f1ff;
+          color: #222F30;
         }
 
         .trust-badges {
           padding: 1.5rem;
-          background: rgba(100, 255, 218, 0.05);
+          background: #84AA73;
           border-radius: 8px;
+          color: #FFFFFF;
         }
 
         .trust-badges .mono {
@@ -277,7 +278,7 @@ export default function Contact() {
         }
 
         .trust-badges li {
-          color: #ccd6f6;
+          color: #FFFFFF;
           padding: 0.5rem 0;
           padding-left: 1.5rem;
           position: relative;
@@ -287,7 +288,7 @@ export default function Contact() {
           content: '✓';
           position: absolute;
           left: 0;
-          color: #64ffda;
+          color: #FFFFFF;
         }
 
         @media (max-width: 768px) {

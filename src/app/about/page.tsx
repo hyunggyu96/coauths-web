@@ -17,7 +17,7 @@ export default function About() {
       {/* Hero */}
       <section className="page-hero section">
         <div className="container">
-          <p className="mono accent">// About Us</p>
+
           <h1>{t('about.title')}</h1>
         </div>
       </section>
@@ -27,7 +27,6 @@ export default function About() {
         <div className="container">
           <div className="mission-content">
             <div className="mission-label">
-              <span className="mono accent">01</span>
               <h2>{t('about.mission.title')}</h2>
             </div>
             <div className="mission-text">
@@ -41,7 +40,6 @@ export default function About() {
       <section className="principles section">
         <div className="container">
           <div className="section-header">
-            <span className="mono accent">02</span>
             <h2>{t('about.principles.title')}</h2>
           </div>
 

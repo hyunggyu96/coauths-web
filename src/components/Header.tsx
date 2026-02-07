@@ -27,7 +27,7 @@ export default function Header() {
       <nav className="nav container">
         <Link href="/" className="logo">
           <span className="logo-text">Co</span>
-          <span className="logo-accent">Auths</span>
+          <span className="logo-accent">auths</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -288,6 +288,6 @@ export default function Header() {
           }
         }
       `}</style>
-    </header>
+    </header >
   );
 }

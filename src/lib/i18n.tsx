@@ -86,7 +86,7 @@ const translations: Translations = {
     },
 
     // About Page
-    'about.title': { en: 'About CoAuths', ko: 'CoAuths 소개' },
+    'about.title': { en: 'About Coauths', ko: 'Coauths 소개' },
     'about.mission.title': { en: 'Our Mission', ko: '우리의 미션' },
     'about.mission.desc': {
         en: 'In a global medical aesthetics market plagued by information asymmetry, we build a Single Source of Truth that all stakeholders can trust.',
@@ -164,8 +164,8 @@ const translations: Translations = {
 
     // Footer
     'footer.copyright': {
-        en: '© 2026 CoAuths. All rights reserved.',
-        ko: '© 2026 CoAuths. All rights reserved.'
+        en: '© 2026 Coauths. All rights reserved.',
+        ko: '© 2026 Coauths. All rights reserved.'
     },
     'footer.tagline': {
         en: 'Transparency Without Ads, Trust Guaranteed by AI',

@@ -20,7 +20,7 @@ export default function Footer() {
           <div className="footer-brand">
             <Link href="/" className="logo">
               <span className="logo-text">Co</span>
-              <span className="logo-accent">Auths</span>
+              <span className="logo-accent">auths</span>
             </Link>
             <p className="tagline">{t('footer.tagline')}</p>
           </div>
