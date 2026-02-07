@@ -1,14 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  /* Color Palette - Professional & Trustworthy */
-  --color-primary: #0a192f;
-  --color-primary-light: #112240;
-  --color-accent: #64ffda;
-  --color-accent-muted: #64ffda33;
-  --color-text: #ccd6f6;
-  --color-text-muted: #8892b0;
-  --color-white: #e6f1ff;
+  /* Color Palette - New Brand Colors */
+  --color-primary: #E7E8E1;
+  /* Light background */
+  --color-primary-light: #F5F5F2;
+  /* Slightly lighter */
+  --color-primary-dark: #222F30;
+  /* Dark accent */
+  --color-accent: #84AA73;
+  /* Green accent */
+  --color-accent-muted: rgba(132, 170, 115, 0.2);
+  --color-text: #222F30;
+  /* Dark text */
+  --color-text-muted: #5A6B6C;
+  /* Muted text */
+  --color-white: #FFFFFF;
+  --color-heading: #222F30;
   --color-slate-50: #f8fafc;
   --color-slate-100: #f1f5f9;
   --color-slate-200: #e2e8f0;
@@ -21,8 +29,8 @@
   --color-slate-900: #0f172a;
 
   /* Typography */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-sans: 'Noto Sans', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Noto Sans Mono', 'JetBrains Mono', 'Fira Code', monospace;
 
   /* Spacing */
   --section-padding: clamp(4rem, 10vw, 8rem);
@@ -60,7 +68,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--color-white);
+  color: var(--color-heading);
   font-weight: 600;
   line-height: 1.2;
   word-break: keep-all;
@@ -97,7 +105,7 @@ a {
 }
 
 a:hover {
-  color: var(--color-white);
+  color: var(--color-primary-dark);
 }
 
 /* Container */
@@ -161,16 +169,18 @@ a:hover {
 
 /* Card */
 .card {
-  background: var(--color-primary-light);
-  border: 1px solid rgba(100, 255, 218, 0.1);
+  background: var(--color-white);
+  border: 1px solid rgba(132, 170, 115, 0.2);
   border-radius: 8px;
   padding: 2rem;
   transition: all var(--transition-base);
+  box-shadow: 0 4px 6px -1px rgba(34, 47, 48, 0.1);
 }
 
 .card:hover {
-  border-color: rgba(100, 255, 218, 0.3);
+  border-color: var(--color-accent);
   transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(34, 47, 48, 0.1);
 }
 
 /* Grid */
@@ -305,7 +315,7 @@ a:hover {
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, var(--color-white) 0%, var(--color-accent) 100%);
+  background: linear-gradient(135deg, var(--color-heading) 0%, var(--color-accent) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

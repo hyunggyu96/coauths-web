@@ -91,14 +91,14 @@ export default function Header() {
           left: 0;
           right: 0;
           z-index: 100;
-          background: rgba(10, 25, 47, 0.85);
+          background: rgba(231, 232, 225, 0.95);
           backdrop-filter: blur(10px);
-          border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+          border-bottom: 1px solid rgba(132, 170, 115, 0.2);
           transition: background-color 0.3s ease;
         }
 
         .header.mobile-open {
-          background: #0a192f;
+          background: #E7E8E1;
           backdrop-filter: none;
           border-bottom: none;
         }
@@ -117,11 +117,11 @@ export default function Header() {
         }
 
         .logo-text {
-          color: #e6f1ff;
+          color: #222F30;
         }
 
         .logo-accent {
-          color: #64ffda;
+          color: #84AA73;
         }
 
         .nav-links {
@@ -130,7 +130,7 @@ export default function Header() {
         }
 
         .nav-link {
-          color: #ccd6f6;
+          color: #5A6B6C;
           font-size: 0.875rem;
           font-weight: 500;
           transition: color 0.3s ease;
@@ -138,7 +138,7 @@ export default function Header() {
 
         .nav-link:hover,
         .nav-link.active {
-          color: #64ffda;
+          color: #84AA73;
         }
 
         .nav-actions {
@@ -149,27 +149,27 @@ export default function Header() {
 
         .lang-toggle {
           background: transparent;
-          border: 1px solid rgba(100, 255, 218, 0.3);
+          border: 1px solid rgba(132, 170, 115, 0.3);
           border-radius: 4px;
           padding: 0.5rem 0.75rem;
           font-size: 0.75rem;
-          font-family: 'JetBrains Mono', monospace;
-          color: #8892b0;
+          font-family: 'Noto Sans', sans-serif;
+          color: #5A6B6C;
           cursor: pointer;
           transition: all 0.3s ease;
         }
 
         .lang-toggle:hover {
-          border-color: #64ffda;
+          border-color: #84AA73;
         }
 
         .lang-toggle span.active {
-          color: #64ffda;
+          color: #84AA73;
         }
 
         .lang-toggle .divider {
           margin: 0 0.25rem;
-          color: #8892b0;
+          color: #5A6B6C;
         }
 
         .mobile-menu-btn {
@@ -190,7 +190,7 @@ export default function Header() {
         .hamburger span {
           display: block;
           height: 2px;
-          background: #64ffda;
+          background: #84AA73;
           transition: all 0.3s ease;
         }
 
@@ -229,13 +229,13 @@ export default function Header() {
             width: auto;
             min-width: 180px;
             max-width: 300px;
-            background-color: #0a192f;
+            background-color: #E7E8E1;
             z-index: 99;
             padding: 1rem 2rem 1.5rem;
-            border-left: 1px solid rgba(100, 255, 218, 0.1);
-            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+            border-left: 1px solid rgba(132, 170, 115, 0.2);
+            border-bottom: 1px solid rgba(132, 170, 115, 0.2);
             border-bottom-left-radius: 12px;
-            box-shadow: -10px 10px 30px -10px rgba(2, 12, 27, 0.7);
+            box-shadow: -10px 10px 30px -10px rgba(34, 47, 48, 0.15);
             transform: translateX(100%);
             transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
           }
@@ -247,8 +247,8 @@ export default function Header() {
           .mobile-nav-link {
             padding: 0.75rem 0;
             font-size: 1.1rem;
-            color: #ccd6f6;
-            border-bottom: 1px solid rgba(100, 255, 218, 0.05);
+            color: #222F30;
+            border-bottom: 1px solid rgba(132, 170, 115, 0.1);
             opacity: 0;
             text-align: left;
             margin-left: 1rem;
@@ -260,7 +260,7 @@ export default function Header() {
 
           .mobile-nav-link:hover,
           .mobile-nav-link.active {
-            color: #64ffda;
+            color: #84AA73;
           }
 
           .mobile-nav-link .mono {

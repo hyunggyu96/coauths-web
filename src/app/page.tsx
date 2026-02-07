@@ -100,7 +100,7 @@ export default function Home() {
           display: flex;
           align-items: center;
           text-align: center;
-          background: radial-gradient(circle at 50% 50%, rgba(100, 255, 218, 0.05) 0%, transparent 50%);
+          background: radial-gradient(circle at 50% 50%, rgba(132, 170, 115, 0.08) 0%, transparent 50%);
         }
 
         .hero-content {
@@ -155,11 +155,11 @@ export default function Home() {
         }
 
         .solution-card {
-          border-left: 3px solid #64ffda;
+          border-left: 3px solid #84AA73;
         }
 
         .cta-section {
-          background: linear-gradient(180deg, transparent 0%, rgba(100, 255, 218, 0.05) 100%);
+          background: linear-gradient(180deg, transparent 0%, rgba(132, 170, 115, 0.08) 100%);
         }
 
         .cta-content {

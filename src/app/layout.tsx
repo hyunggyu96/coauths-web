@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Noto_Sans, Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
 import { I18nProvider } from "@/lib/i18n";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const inter = Inter({
+const notoSans = Noto_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-noto-sans",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const notoSansKR = Noto_Sans_KR({
   subsets: ["latin"],
-  variable: "--font-mono",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-noto-sans-kr",
 });
 
 export const metadata: Metadata = {
@@ -39,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${jetbrainsMono.variable}`}>
+      <body className={`${notoSans.variable} ${notoSansKR.variable}`}>
         <I18nProvider>
           <div className="app-wrapper">
             <Header />
