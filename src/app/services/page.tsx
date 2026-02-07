@@ -61,7 +61,6 @@ export default function Services() {
                 <div className="service-icon-large">
                   {service.icon}
                 </div>
-                <div className="service-number mono">{String(index + 1).padStart(2, '0')}</div>
               </div>
               <div className="service-content">
                 {/* Subtitle removed as per request */}

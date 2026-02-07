@@ -25,7 +25,7 @@ export default function Header() {
   return (
     <header className={`header ${mobileMenuOpen ? 'mobile-open' : ''}`}>
       <nav className="nav container">
-        <Link href="/" className="logo">
+        <Link href="/" className="logo" onClick={() => setMobileMenuOpen(false)}>
           <span className="logo-text">Co</span>
           <span className="logo-accent">auths</span>
         </Link>

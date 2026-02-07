@@ -1,15 +1,16 @@
 'use client';
 
 import { useTranslation } from '@/lib/i18n';
+import { Ban, Lock, Scale, Search } from 'lucide-react';
 
 export default function About() {
   const { t } = useTranslation();
 
   const principles = [
-    { key: '1', icon: '🚫' },
-    { key: '2', icon: '🔒' },
-    { key: '3', icon: '⚖️' },
-    { key: '4', icon: '🔍' },
+    { key: '1', icon: <Ban size={40} strokeWidth={1.5} color="#FFFFFF" /> },
+    { key: '2', icon: <Lock size={40} strokeWidth={1.5} color="#FFFFFF" /> },
+    { key: '3', icon: <Scale size={40} strokeWidth={1.5} color="#FFFFFF" /> },
+    { key: '4', icon: <Search size={40} strokeWidth={1.5} color="#FFFFFF" /> },
   ];
 
   return (
@@ -60,10 +61,10 @@ export default function About() {
           </div>
 
           <div className="principles-grid">
-            {principles.map((principle, index) => (
+            {principles.map((principle) => (
               <div key={principle.key} className="principle-card">
-                <div className="principle-number mono accent">0{index + 1}</div>
-                <span className="principle-icon">{principle.icon}</span>
+                <div className="principle-icon">{principle.icon}</div>
+                <div className="card-divider"></div>
                 <p>{t(`about.principle.${principle.key}`)}</p>
               </div>
             ))}
@@ -152,18 +153,20 @@ export default function About() {
         }
 
         .principle-number {
-          position: absolute;
-          top: 1rem;
-          right: 1rem;
-          font-size: 0.75rem;
-          color: rgba(255, 255, 255, 0.8);
+          display: none;
         }
 
         .principle-icon {
-          font-size: 2rem;
           display: block;
           margin-bottom: 1rem;
           color: #FFFFFF;
+        }
+        
+        .card-divider {
+             width: 40px;
+             height: 2px;
+             background-color: rgba(255, 255, 255, 0.3);
+             margin-bottom: 1rem;
         }
 
         .principle-card p {

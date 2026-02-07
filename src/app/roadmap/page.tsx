@@ -18,7 +18,6 @@ export default function Roadmap() {
       {/* Hero */}
       <section className="page-hero section">
         <div className="container">
-          <p className="mono accent">// Our Journey</p>
           <h1>{t('roadmap.title')}</h1>
           <p className="page-subtitle">
             Building the foundation for trusted medical aesthetics information
@@ -152,11 +151,13 @@ export default function Roadmap() {
 
         .phase-marker {
           position: absolute;
-          left: -3rem;
+          left: -9rem;
           top: 0;
           display: flex;
           align-items: center;
           gap: 1rem;
+          width: 8rem;
+          justify-content: flex-end;
         }
 
         .marker-dot {
@@ -268,10 +269,19 @@ export default function Roadmap() {
         @media (max-width: 768px) {
           .timeline-content {
             padding-left: 2rem;
+            margin-top: 2rem; /* Add space for top marker if needed */
           }
 
           .phase-marker {
-            left: -2rem;
+            left: 0;
+            top: -2rem;
+            width: auto;
+            justify-content: flex-start;
+          }
+
+          .timeline-line {
+            left: 7px;
+            top: 10px; /* Adjust start to align with content */
           }
 
           .focus-grid {
