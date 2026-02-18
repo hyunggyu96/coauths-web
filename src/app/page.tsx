@@ -63,12 +63,12 @@ export default function Home() {
                   <li>🔒 Zero advertisements</li>
                   <li>🌍 Global regulatory sync</li>
                 </ul>
-                <Link href="/services" className="product-link">Explore AIP →</Link>
+
               </div>
             </div>
 
             {/* Cosmos Card */}
-            <div className="product-card product-card-featured">
+            <div className="product-card">
               <div className="product-preview">
                 <div className="preview-cosmos">
                   <div className="mini-phone">
@@ -91,7 +91,7 @@ export default function Home() {
                   <li>✅ Instant verification</li>
                   <li>🚨 Counterfeit alerts</li>
                 </ul>
-                <Link href="/services" className="product-link">Explore Cosmos →</Link>
+
               </div>
             </div>
 
@@ -128,7 +128,7 @@ export default function Home() {
                   <li>👑 VIP patient management</li>
                   <li>💌 AI-suggested promotions</li>
                 </ul>
-                <Link href="/services" className="product-link">Explore AI CRM →</Link>
+
               </div>
             </div>
 
