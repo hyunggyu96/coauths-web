@@ -2,9 +2,10 @@
 
 import Link from 'next/link';
 import { useTranslation } from '@/lib/i18n';
-import { TrendingUp, Instagram, Check } from 'lucide-react';
+import { Instagram, Check } from 'lucide-react';
 import CosmosDemo from '@/components/CosmosDemo';
 import AIPDemo from '@/components/AIPDemo';
+import AICRMDemo from '@/components/AICRMDemo';
 
 export default function Services() {
   const { t } = useTranslation();
@@ -32,7 +33,7 @@ export default function Services() {
     },
     {
       id: 'crm',
-      icon: <TrendingUp size={80} strokeWidth={1} color="#FFFFFF" />,
+      icon: null,
       features: [
         'Clinic size optimization',
         'Real-time compliance monitoring',
@@ -64,6 +65,8 @@ export default function Services() {
                   <CosmosDemo />
                 ) : service.id === 'aip' ? (
                   <AIPDemo />
+                ) : service.id === 'crm' ? (
+                  <AICRMDemo />
                 ) : (
                   <div className="service-icon-large">
                     {service.icon}

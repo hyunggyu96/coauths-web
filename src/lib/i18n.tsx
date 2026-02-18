@@ -129,11 +129,11 @@ const translations: Translations = {
         en: 'Vision scan + NFC/RFID hybrid authentication. Authenticity verification without direct access to manufacturing databases. Automatic alerts and regulatory response support.',
         ko: '비전 스캔 + NFC/RFID 하이브리드 인증. 제조·유통 DB 직접 접근 없이 진위 판별. 정품/가품에 따른 자동 알람 및 규제 대응 지원.'
     },
-    'services.crm.title': { en: 'AIP CRM - Adaptive and Easy-use System', ko: 'AIP CRM - Adaptive and Easy-use System' },
+    'services.crm.title': { en: 'AI CRM - Smart Clinic Management', ko: 'AI CRM - 스마트 클리닉 관리' },
     // 'services.crm.subtitle': Removed
     'services.crm.desc': {
-        en: 'Customized CRM optimization by clinic size. Real-time medical device and pharmaceutical regulatory compliance monitoring. Built-in AI governance and data security.',
-        ko: '클리닉 규모별 맞춤형 CRM 최적화. 실시간 의료기기·의약품 규제 준수 모니터링. AI 거버넌스 및 데이터 보안 내재화.'
+        en: 'AI-powered CRM tailored to your clinic\'s scale and direction. Predict no-shows before they happen, manage VIP appointments, and re-engage patients with personalized promotions based on visit history.',
+        ko: '클리닉 규모와 방향성에 맞춘 AI CRM. 노쇼 발생 가능성을 사전에 예측하고, VIP 예약을 관리하며, 방문 이력 기반 맞춤 프로모션으로 고객 이탈을 방지합니다.'
     },
 
     // Roadmap Page
