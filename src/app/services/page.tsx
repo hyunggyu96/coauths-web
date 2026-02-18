@@ -266,10 +266,40 @@ export default function Services() {
           .service-block {
             grid-template-columns: 1fr;
             gap: 2rem;
+            text-align: center;
           }
 
           .service-block.reverse {
             direction: ltr;
+          }
+
+          .service-visual {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          /* Center all demo component wrappers on mobile */
+          .service-visual > * {
+            margin-left: auto;
+            margin-right: auto;
+          }
+
+          .service-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .feature-list {
+            text-align: left;
+            width: 100%;
+            max-width: 360px;
+          }
+
+          .action-buttons {
+            justify-content: center;
           }
 
           .service-icon-large {
