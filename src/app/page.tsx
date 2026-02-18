@@ -42,7 +42,7 @@ export default function Home() {
                     <div className="mini-orbit">
                       {['📡', '🔬', '📊', '⚖️', '🌐', '🤖'].map((icon, i) => (
                         <div key={i} className="mini-node" style={{
-                          transform: `rotate(${i * 60}deg) translateX(52px) rotate(-${i * 60}deg)`
+                          transform: `rotate(${i * 60}deg) translateX(68px) rotate(-${i * 60}deg)`
                         }}>{icon}</div>
                       ))}
                     </div>
@@ -58,12 +58,6 @@ export default function Home() {
                 <div className="product-badge" style={{ background: 'rgba(96,165,250,0.12)', color: '#60a5fa', borderColor: 'rgba(96,165,250,0.3)' }}>Intelligence Platform</div>
                 <h3>AIP</h3>
                 <p>Real-time aggregation of regulations, research, and industry news — ad-free.</p>
-                <ul className="product-features">
-                  <li>📡 6 live data sources</li>
-                  <li>🔒 Zero advertisements</li>
-                  <li>🌍 Global regulatory sync</li>
-                </ul>
-
               </div>
             </div>
 
@@ -86,12 +80,6 @@ export default function Home() {
                 <div className="product-badge" style={{ background: 'rgba(132,170,115,0.12)', color: '#84AA73', borderColor: 'rgba(132,170,115,0.3)' }}>Authentication</div>
                 <h3>Cosmos</h3>
                 <p>Scan any aesthetic product and verify its authenticity instantly with AI.</p>
-                <ul className="product-features">
-                  <li>📷 Vision + NFC/RFID scan</li>
-                  <li>✅ Instant verification</li>
-                  <li>🚨 Counterfeit alerts</li>
-                </ul>
-
               </div>
             </div>
 
@@ -123,12 +111,6 @@ export default function Home() {
                 <div className="product-badge" style={{ background: 'rgba(167,139,250,0.12)', color: '#a78bfa', borderColor: 'rgba(167,139,250,0.3)' }}>Smart CRM</div>
                 <h3>AI CRM</h3>
                 <p>Predict no-shows, manage VIP patients, and send AI-crafted promotions.</p>
-                <ul className="product-features">
-                  <li>⚠️ No-show prediction</li>
-                  <li>👑 VIP patient management</li>
-                  <li>💌 AI-suggested promotions</li>
-                </ul>
-
               </div>
             </div>
 
@@ -373,7 +355,7 @@ export default function Home() {
 
         /* ── Preview area ── */
         .product-preview {
-          height: 180px;
+          height: 240px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -393,8 +375,8 @@ export default function Home() {
 
         .mini-hub-wrap {
           position: relative;
-          width: 120px;
-          height: 120px;
+          width: 150px;
+          height: 150px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -415,10 +397,10 @@ export default function Home() {
           position: absolute;
           top: 50%;
           left: 50%;
-          width: 22px;
-          height: 22px;
-          margin: -11px;
-          font-size: 12px;
+          width: 26px;
+          height: 26px;
+          margin: -13px;
+          font-size: 14px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -428,18 +410,18 @@ export default function Home() {
         }
 
         .mini-hub {
-          width: 44px;
-          height: 44px;
+          width: 58px;
+          height: 58px;
           background: linear-gradient(135deg, #84AA73, #4a7a3a);
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 9px;
+          font-size: 11px;
           font-weight: 800;
           color: white;
           letter-spacing: 0.5px;
-          box-shadow: 0 0 16px rgba(132,170,115,0.5);
+          box-shadow: 0 0 20px rgba(132,170,115,0.6);
           z-index: 1;
           position: relative;
         }
@@ -475,13 +457,13 @@ export default function Home() {
         }
 
         .mini-phone {
-          width: 72px;
-          height: 120px;
+          width: 90px;
+          height: 150px;
           background: #0a0f0a;
           border: 2px solid rgba(132,170,115,0.4);
-          border-radius: 14px;
-          padding: 6px;
-          box-shadow: 0 0 20px rgba(132,170,115,0.2);
+          border-radius: 18px;
+          padding: 7px;
+          box-shadow: 0 0 28px rgba(132,170,115,0.25);
         }
 
         .mini-screen {
@@ -515,8 +497,8 @@ export default function Home() {
         }
 
         .mini-product-box {
-          font-size: 22px;
-          filter: drop-shadow(0 0 6px rgba(132,170,115,0.5));
+          font-size: 32px;
+          filter: drop-shadow(0 0 8px rgba(132,170,115,0.6));
         }
 
         .mini-verified {
@@ -538,10 +520,10 @@ export default function Home() {
         /* ── CRM mini ── */
         .preview-crm {
           width: 100%;
-          padding: 12px 14px;
+          padding: 16px 20px;
           display: flex;
           flex-direction: column;
-          gap: 8px;
+          gap: 10px;
         }
 
         .mini-crm-header {
