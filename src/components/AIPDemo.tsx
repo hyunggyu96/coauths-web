@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from 'react';
 
 // 6 sources → evenly spaced at 60° intervals (hexagonal)
+// labelOffsetX/Y: pixel offset from node center to label center
 const SOURCES = [
   {
     id: 'news',
@@ -10,6 +11,7 @@ const SOURCES = [
     icon: '📡',
     color: '#60a5fa',
     angle: -90,   // top
+    labelOffsetX: 0, labelOffsetY: -28,
     items: ['FDA approves new filler compound', 'Botox market hits $9.8B in Q4', 'EU tightens aesthetic device rules'],
   },
   {
@@ -18,6 +20,7 @@ const SOURCES = [
     icon: '🔬',
     color: '#a78bfa',
     angle: -30,   // top-right
+    labelOffsetX: 28, labelOffsetY: -16,
     items: ['Hyaluronic acid longevity study', 'Neurotoxin diffusion meta-analysis', 'PDO thread lift RCT results'],
   },
   {
@@ -26,6 +29,7 @@ const SOURCES = [
     icon: '📊',
     color: '#f59e0b',
     angle: 30,    // bottom-right
+    labelOffsetX: 28, labelOffsetY: 16,
     items: ['Allergan Q4 earnings beat', 'Galderma IPO valuation update', 'Hugel expands into US market'],
   },
   {
@@ -34,6 +38,7 @@ const SOURCES = [
     icon: '⚖️',
     color: '#f87171',
     angle: 90,    // bottom
+    labelOffsetX: 0, labelOffsetY: 28,
     items: ['Korea MFDS new HA guidelines', 'ANVISA Brazil aesthetic regs', 'TGA Australia filler update'],
   },
   {
@@ -42,6 +47,7 @@ const SOURCES = [
     icon: '🌐',
     color: '#34d399',
     angle: 150,   // bottom-left
+    labelOffsetX: -28, labelOffsetY: 16,
     items: ['IMCAS Paris 2025 — Mar 14', 'AMWC Monaco — Apr 3', 'ASDS Annual Meeting — Oct 9'],
   },
   {
@@ -50,6 +56,7 @@ const SOURCES = [
     icon: '🤖',
     color: '#fb923c',
     angle: 210,   // top-left
+    labelOffsetX: -28, labelOffsetY: -16,
     items: ['EU AI Act aesthetics scope update', 'FDA AI/ML device guidance draft', 'ISO 42001 compliance checklist'],
   },
 ];
@@ -261,11 +268,8 @@ export default function AIPDemo() {
             {SOURCES.map((src, i) => {
               const pos = polarToXY(src.angle, R, CX, CY);
               const isActive = pulseIdx === i;
-              // label offset: push outward from center
-              const labelAngleRad = ((src.angle - 90) * Math.PI) / 180;
-              const labelDist = 30;
-              const lx = pos.x + Math.cos(labelAngleRad) * labelDist;
-              const ly = pos.y + Math.sin(labelAngleRad) * labelDist;
+              const lx = pos.x + src.labelOffsetX;
+              const ly = pos.y + src.labelOffsetY;
 
               return (
                 <g key={src.id}
@@ -327,48 +331,7 @@ export default function AIPDemo() {
             <text x={CX} y={CY - 7} textAnchor="middle" fontSize="11" fontWeight="800" fill="white" letterSpacing="1">AIP</text>
             <text x={CX} y={CY + 7} textAnchor="middle" fontSize="5.5" fill="rgba(255,255,255,0.65)" letterSpacing="0.5">PLATFORM</text>
 
-            {/* Platform icons below hub — Web, Android, iOS */}
-            {PLATFORMS.map((plat, i) => {
-              const platX = CX + (i - 1) * 28;
-              const platY = CY + HUB_R + 22;
-              const isActive = activePlatform === i;
-              return (
-                <g key={plat.id}>
-                  {/* connector line from hub */}
-                  <line
-                    x1={CX} y1={CY + HUB_R}
-                    x2={platX} y2={platY - 10}
-                    stroke={isActive ? '#84AA73' : 'rgba(132,170,115,0.2)'}
-                    strokeWidth={isActive ? 1 : 0.5}
-                    strokeDasharray="2 3"
-                    style={{ transition: 'all 0.4s ease' }}
-                  />
-                  {/* badge bg */}
-                  <rect
-                    x={platX - 14} y={platY - 10}
-                    width={28} height={22}
-                    rx={5}
-                    fill={isActive ? 'rgba(132,170,115,0.18)' : 'rgba(132,170,115,0.06)'}
-                    stroke={isActive ? '#84AA73' : 'rgba(132,170,115,0.25)'}
-                    strokeWidth={isActive ? 1 : 0.5}
-                    style={{ transition: 'all 0.4s ease' }}
-                    filter={isActive ? 'url(#platformGlow)' : undefined}
-                  />
-                  {/* label */}
-                  <text
-                    x={platX} y={platY + 6}
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    fontSize="6.5"
-                    fontWeight={isActive ? '700' : '400'}
-                    fill={isActive ? '#84AA73' : 'rgba(132,170,115,0.5)'}
-                    style={{ transition: 'all 0.4s ease' }}
-                  >
-                    {plat.label}
-                  </text>
-                </g>
-              );
-            })}
+            {/* Platform icons below hub removed for cleaner look */}
           </svg>
         </div>
 
