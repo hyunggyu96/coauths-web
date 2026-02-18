@@ -2,8 +2,9 @@
 
 import Link from 'next/link';
 import { useTranslation } from '@/lib/i18n';
-import { BrainCircuit, TrendingUp, Instagram, Check } from 'lucide-react';
+import { TrendingUp, Instagram, Check } from 'lucide-react';
 import CosmosDemo from '@/components/CosmosDemo';
+import AIPDemo from '@/components/AIPDemo';
 
 export default function Services() {
   const { t } = useTranslation();
@@ -11,7 +12,7 @@ export default function Services() {
   const services = [
     {
       id: 'aip',
-      icon: <BrainCircuit size={80} strokeWidth={1} color="#FFFFFF" />,
+      icon: null,
       features: [
         'RAG-based data integration',
         'Professional & consumer content separation',
@@ -61,6 +62,8 @@ export default function Services() {
               <div className="service-visual">
                 {service.id === 'cosmos' ? (
                   <CosmosDemo />
+                ) : service.id === 'aip' ? (
+                  <AIPDemo />
                 ) : (
                   <div className="service-icon-large">
                     {service.icon}
