@@ -50,17 +50,7 @@ export default function AICRMDemo() {
   const [sending, setSending] = useState<number | null>(null);
   const [currentTime, setCurrentTime] = useState('');
 
-  // Auto-cycle tabs for demo effect
-  useEffect(() => {
-    const cycle: Tab[] = ['schedule', 'noshow', 'promo'];
-    let i = 0;
-    const t = setInterval(() => {
-      i = (i + 1) % cycle.length;
-      setActiveTab(cycle[i]);
-      setSelectedPatient(null);
-    }, 4000);
-    return () => clearInterval(t);
-  }, []);
+  // Manual tab switching only — no auto-cycle
 
   // Live clock
   useEffect(() => {
@@ -131,37 +121,36 @@ export default function AICRMDemo() {
               <div className="crm-section-label">Today&apos;s Appointments · {PATIENTS.length} patients</div>
               <div className="patient-list">
                 {PATIENTS.map((p, i) => (
-                  <div
-                    key={i}
-                    className={`patient-row ${selectedPatient === i ? 'selected' : ''}`}
-                    onClick={() => setSelectedPatient(selectedPatient === i ? null : i)}
-                  >
-                    <div className="patient-time">{p.time}</div>
-                    <div className="patient-info">
-                      <div className="patient-name-row">
-                        <span className="patient-name">{p.name}</span>
-                        <span className="patient-tag" style={{ background: `${p.tagColor}22`, color: p.tagColor, borderColor: `${p.tagColor}55` }}>
-                          {p.tag}
-                        </span>
+                  <div key={i}>
+                    <div
+                      className={`patient-row ${selectedPatient === i ? 'selected' : ''}`}
+                      onClick={() => setSelectedPatient(selectedPatient === i ? null : i)}
+                    >
+                      <div className="patient-time">{p.time}</div>
+                      <div className="patient-info">
+                        <div className="patient-name-row">
+                          <span className="patient-name">{p.name}</span>
+                          <span className="patient-tag" style={{ background: `${p.tagColor}22`, color: p.tagColor, borderColor: `${p.tagColor}55` }}>
+                            {p.tag}
+                          </span>
+                        </div>
+                        <div className="patient-treatment">{p.treatment}</div>
                       </div>
-                      <div className="patient-treatment">{p.treatment}</div>
+                      <div className="patient-risk-mini" style={{ color: RISK_COLOR[p.noShowRisk] }}>
+                        {RISK_LABEL[p.noShowRisk]}
+                      </div>
                     </div>
-                    <div className="patient-risk-mini" style={{ color: RISK_COLOR[p.noShowRisk] }}>
-                      {RISK_LABEL[p.noShowRisk]}
-                    </div>
+                    {selectedPatient === i && (
+                      <div className="patient-detail">
+                        <div className="detail-row"><span>Last visit</span><span>{p.lastVisit}</span></div>
+                        <div className="detail-row"><span>No-show risk</span>
+                          <span style={{ color: RISK_COLOR[p.noShowRisk] }}>{p.riskPct}%</span>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
-              {selectedPatient !== null && (
-                <div className="patient-detail">
-                  <div className="detail-row"><span>Last visit</span><span>{PATIENTS[selectedPatient].lastVisit}</span></div>
-                  <div className="detail-row"><span>No-show risk</span>
-                    <span style={{ color: RISK_COLOR[PATIENTS[selectedPatient].noShowRisk] }}>
-                      {PATIENTS[selectedPatient].riskPct}%
-                    </span>
-                  </div>
-                </div>
-              )}
             </div>
           </div>
         )}
