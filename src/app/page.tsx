@@ -27,7 +27,6 @@ export default function Home() {
       <section className="hero section">
         <div className="container">
           <div className="hero-content">
-
             <h1 className="fade-in stagger-1 text-gradient" style={{ whiteSpace: 'pre-wrap' }}>{t('hero.tagline')}</h1>
             <p className="hero-description">{t('hero.description')}</p>
             <div className="hero-cta">
@@ -39,64 +38,9 @@ export default function Home() {
               </Link>
             </div>
           </div>
-        </div>
-      </section>
 
-      <div className="section-divider"></div>
-
-      {/* Problems */}
-      <section className="problems section">
-        <div className="container">
-          <div className="section-header text-center">
-            <h2 className="section-title">{t('problem.title')}</h2>
-            <p className="section-subtitle">{t('problem.subtitle')}</p>
-          </div>
-
-          <div className="grid-4 stagger">
-            {problems.map((problem, index) => (
-              <div key={problem.key} className="card" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="card-icon" style={{ animationDelay: `${index * 0.5}s` }}>{problem.icon}</div>
-                <h3>{t(`problem.${problem.key}.title`)}</h3>
-                <p>{t(`problem.${problem.key}.desc`)}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <div className="section-divider"></div>
-
-      {/* Solutions */}
-      <section className="solutions section">
-        <div className="container">
-          <div className="section-header text-center">
-            <h2 className="section-title">{t('solution.title')}</h2>
-            <p className="section-subtitle">{t('solution.subtitle')}</p>
-          </div>
-
-          <div className="grid-4 stagger">
-            {solutions.map((solution) => (
-              <div key={solution.key} className="card solution-card">
-                <div className="card-icon">{solution.icon}</div>
-                <h3>{t(`solution.${solution.key}.title`)}</h3>
-                <p>{t(`solution.${solution.key}.desc`)}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <div className="section-divider"></div>
-
-      {/* Products Showcase */}
-      <section className="products-section section">
-        <div className="container">
-          <div className="section-header text-center">
-            <h2 className="section-title">Our Products</h2>
-            <p className="section-subtitle">Three AI-powered tools built for the medical aesthetics industry</p>
-          </div>
-
-          <div className="products-grid">
+          {/* Product cards — visible on first screen */}
+          <div className="hero-products">
 
             {/* AIP Card */}
             <div className="product-card">
@@ -202,6 +146,49 @@ export default function Home() {
 
       <div className="section-divider"></div>
 
+      {/* Problems */}
+      <section className="problems section">
+        <div className="container">
+          <div className="section-header text-center">
+            <h2 className="section-title">{t('problem.title')}</h2>
+            <p className="section-subtitle">{t('problem.subtitle')}</p>
+          </div>
+
+          <div className="grid-4 stagger">
+            {problems.map((problem, index) => (
+              <div key={problem.key} className="card" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div className="card-icon" style={{ animationDelay: `${index * 0.5}s` }}>{problem.icon}</div>
+                <h3>{t(`problem.${problem.key}.title`)}</h3>
+                <p>{t(`problem.${problem.key}.desc`)}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div className="section-divider"></div>
+
+      {/* Solutions */}
+      <section className="solutions section">
+        <div className="container">
+          <div className="section-header text-center">
+            <h2 className="section-title">{t('solution.title')}</h2>
+            <p className="section-subtitle">{t('solution.subtitle')}</p>
+          </div>
+
+          <div className="grid-4 stagger">
+            {solutions.map((solution) => (
+              <div key={solution.key} className="card solution-card">
+                <div className="card-icon">{solution.icon}</div>
+                <h3>{t(`solution.${solution.key}.title`)}</h3>
+                <p>{t(`solution.${solution.key}.desc`)}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
       {/* CTA Section */}
       <section className="cta-section section">
         <div className="container">
@@ -218,28 +205,33 @@ export default function Home() {
 
       <style jsx>{`
         .hero {
-          min-height: calc(100vh - 70px);
+          min-height: 100vh;
           display: flex;
-          align-items: center;
+          align-items: flex-start;
+          padding-top: 5vh;
+          padding-bottom: 4vh;
           text-align: center;
-          background: radial-gradient(circle at 50% 50%, rgba(132, 170, 115, 0.08) 0%, transparent 50%);
+          background: radial-gradient(circle at 50% 30%, rgba(132, 170, 115, 0.08) 0%, transparent 55%);
         }
 
         .hero-content {
-          max-width: 800px;
+          max-width: 860px;
           margin: 0 auto;
         }
 
-        .hero-content .mono {
-          margin-bottom: 1.5rem;
+        .hero-content h1 {
+          font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+          line-height: 1.25;
+          white-space: pre-wrap;
         }
 
         .hero-description {
-          font-size: 1.25rem;
-          margin: 1.5rem 0 2.5rem;
-          max-width: 600px;
-          margin-left: auto;
-          margin-right: auto;
+          font-size: 1rem;
+          margin: 1rem 0 1.5rem;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 100%;
         }
 
         .hero-cta {
@@ -247,6 +239,16 @@ export default function Home() {
           gap: 1rem;
           justify-content: center;
           flex-wrap: wrap;
+          margin-bottom: 2.5rem;
+        }
+
+        .hero-products {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1.25rem;
+          width: 100%;
+          max-width: 1100px;
+          margin: 0 auto;
         }
 
         .section-header {
@@ -684,10 +686,19 @@ export default function Home() {
         }
 
         @media (max-width: 900px) {
-          .products-grid {
+          .products-grid,
+          .hero-products {
             grid-template-columns: 1fr;
             max-width: 400px;
             margin: 0 auto;
+          }
+
+          .hero-description {
+            white-space: normal;
+          }
+
+          .hero {
+            padding-top: 3vh;
           }
         }
       `}</style>
