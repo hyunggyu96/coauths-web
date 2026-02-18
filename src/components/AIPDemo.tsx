@@ -11,7 +11,7 @@ const SOURCES = [
     icon: '📡',
     color: '#60a5fa',
     angle: -90,   // top
-    labelOffsetX: 0, labelOffsetY: -28,
+    labelOffsetX: 0, labelOffsetY: 28,
     items: ['FDA approves new filler compound', 'Botox market hits $9.8B in Q4', 'EU tightens aesthetic device rules'],
   },
   {
@@ -20,7 +20,7 @@ const SOURCES = [
     icon: '🔬',
     color: '#a78bfa',
     angle: -30,   // top-right
-    labelOffsetX: 28, labelOffsetY: -16,
+    labelOffsetX: 0, labelOffsetY: 28,
     items: ['Hyaluronic acid longevity study', 'Neurotoxin diffusion meta-analysis', 'PDO thread lift RCT results'],
   },
   {
@@ -29,7 +29,7 @@ const SOURCES = [
     icon: '📊',
     color: '#f59e0b',
     angle: 30,    // bottom-right
-    labelOffsetX: 28, labelOffsetY: 16,
+    labelOffsetX: 0, labelOffsetY: 28,
     items: ['Allergan Q4 earnings beat', 'Galderma IPO valuation update', 'Hugel expands into US market'],
   },
   {
@@ -47,7 +47,7 @@ const SOURCES = [
     icon: '🌐',
     color: '#34d399',
     angle: 150,   // bottom-left
-    labelOffsetX: -28, labelOffsetY: 16,
+    labelOffsetX: 0, labelOffsetY: 28,
     items: ['IMCAS Paris 2025 — Mar 14', 'AMWC Monaco — Apr 3', 'ASDS Annual Meeting — Oct 9'],
   },
   {
@@ -56,7 +56,7 @@ const SOURCES = [
     icon: '🤖',
     color: '#fb923c',
     angle: 210,   // top-left
-    labelOffsetX: -28, labelOffsetY: -16,
+    labelOffsetX: 0, labelOffsetY: 28,
     items: ['EU AI Act aesthetics scope update', 'FDA AI/ML device guidance draft', 'ISO 42001 compliance checklist'],
   },
 ];
