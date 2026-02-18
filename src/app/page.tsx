@@ -29,14 +29,6 @@ export default function Home() {
           <div className="hero-content">
             <h1 className="fade-in stagger-1 text-gradient" style={{ whiteSpace: 'pre-wrap' }}>{t('hero.tagline')}</h1>
             <p className="hero-description">{t('hero.description')}</p>
-            <div className="hero-cta">
-              <Link href="/services" className="btn btn-primary">
-                {t('hero.cta.primary')}
-              </Link>
-              <Link href="/contact" className="btn btn-secondary">
-                {t('hero.cta.secondary')}
-              </Link>
-            </div>
           </div>
 
           {/* Product cards — visible on first screen */}
@@ -141,6 +133,16 @@ export default function Home() {
             </div>
 
           </div>
+
+          {/* CTA buttons below cards */}
+          <div className="hero-cta">
+            <Link href="/services" className="btn btn-primary">
+              {t('hero.cta.primary')}
+            </Link>
+            <Link href="/contact" className="btn btn-secondary">
+              {t('hero.cta.secondary')}
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -239,7 +241,7 @@ export default function Home() {
           gap: 1rem;
           justify-content: center;
           flex-wrap: wrap;
-          margin-bottom: 2.5rem;
+          margin-top: 2rem;
         }
 
         .hero-products {
