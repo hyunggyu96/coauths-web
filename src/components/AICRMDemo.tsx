@@ -5,237 +5,243 @@ import { useEffect, useState } from 'react';
 type RiskLevel = 'high' | 'medium' | 'low';
 
 interface Patient {
-    name: string;
-    time: string;
-    tag: string;
-    tagColor: string;
-    noShowRisk: RiskLevel;
-    riskPct: number;
-    lastVisit: string;
-    treatment: string;
+  name: string;
+  time: string;
+  tag: string;
+  tagColor: string;
+  noShowRisk: RiskLevel;
+  riskPct: number;
+  lastVisit: string;
+  treatment: string;
 }
 
 const PATIENTS: Patient[] = [
-    { name: 'Kim Ji-yeon', time: '10:00', tag: 'VIP', tagColor: '#f59e0b', noShowRisk: 'low', riskPct: 8, lastVisit: '14d ago', treatment: 'Botox 50U' },
-    { name: 'Park Soo-ah', time: '11:30', tag: 'NEW', tagColor: '#60a5fa', noShowRisk: 'high', riskPct: 74, lastVisit: 'First', treatment: 'HA Filler' },
-    { name: 'Lee Min-jun', time: '13:00', tag: 'REG', tagColor: '#84AA73', noShowRisk: 'medium', riskPct: 41, lastVisit: '32d ago', treatment: 'Skin Booster' },
-    { name: 'Choi Ye-jin', time: '14:30', tag: 'VIP', tagColor: '#f59e0b', noShowRisk: 'low', riskPct: 12, lastVisit: '7d ago', treatment: 'PDO Thread' },
-    { name: 'Jung Da-eun', time: '16:00', tag: 'REG', tagColor: '#84AA73', noShowRisk: 'high', riskPct: 68, lastVisit: '61d ago', treatment: 'Botox 30U' },
+  { name: 'Kim Ji-yeon', time: '10:00', tag: 'VIP', tagColor: '#f59e0b', noShowRisk: 'low', riskPct: 8, lastVisit: '14d ago', treatment: 'Botox 50U' },
+  { name: 'Park Soo-ah', time: '11:30', tag: 'NEW', tagColor: '#60a5fa', noShowRisk: 'high', riskPct: 74, lastVisit: 'First', treatment: 'HA Filler' },
+  { name: 'Lee Min-jun', time: '13:00', tag: 'REG', tagColor: '#84AA73', noShowRisk: 'medium', riskPct: 41, lastVisit: '32d ago', treatment: 'Skin Booster' },
+  { name: 'Choi Ye-jin', time: '14:30', tag: 'VIP', tagColor: '#f59e0b', noShowRisk: 'low', riskPct: 12, lastVisit: '7d ago', treatment: 'PDO Thread' },
+  { name: 'Jung Da-eun', time: '16:00', tag: 'REG', tagColor: '#84AA73', noShowRisk: 'high', riskPct: 68, lastVisit: '61d ago', treatment: 'Botox 30U' },
 ];
 
 const PROMOS = [
-    { patient: 'Lee Min-jun', msg: 'It\'s been a while! Book your next Skin Booster and get 15% off.', sent: false },
-    { patient: 'Jung Da-eun', msg: 'We miss you! Special returning patient offer — valid this week.', sent: false },
-    { patient: 'Park Soo-ah', msg: 'Your first visit is confirmed. Here\'s what to expect from HA Filler.', sent: false },
+  { patient: 'Lee Min-jun', msg: 'It\'s been a while! Book your next Skin Booster and get 15% off.', sent: false },
+  { patient: 'Jung Da-eun', msg: 'We miss you! Special returning patient offer — valid this week.', sent: false },
+  { patient: 'Park Soo-ah', msg: 'Your first visit is confirmed. Here\'s what to expect from HA Filler.', sent: false },
 ];
 
 const RISK_COLOR: Record<RiskLevel, string> = {
-    high: '#f87171',
-    medium: '#f59e0b',
-    low: '#34d399',
+  high: '#f87171',
+  medium: '#f59e0b',
+  low: '#34d399',
 };
 
 const RISK_LABEL: Record<RiskLevel, string> = {
-    high: 'HIGH',
-    medium: 'MED',
-    low: 'LOW',
+  high: 'HIGH',
+  medium: 'MED',
+  low: 'LOW',
 };
 
 type Tab = 'schedule' | 'noshow' | 'promo';
 
 export default function AICRMDemo() {
-    const [activeTab, setActiveTab] = useState<Tab>('schedule');
-    const [selectedPatient, setSelectedPatient] = useState<number | null>(null);
-    const [promos, setPromos] = useState(PROMOS);
-    const [sending, setSending] = useState<number | null>(null);
-    const [currentTime, setCurrentTime] = useState('');
+  const [activeTab, setActiveTab] = useState<Tab>('schedule');
+  const [selectedPatient, setSelectedPatient] = useState<number | null>(null);
+  const [promos, setPromos] = useState(PROMOS);
+  const [sending, setSending] = useState<number | null>(null);
+  const [currentTime, setCurrentTime] = useState('');
 
-    // Auto-cycle tabs for demo effect
-    useEffect(() => {
-        const cycle: Tab[] = ['schedule', 'noshow', 'promo'];
-        let i = 0;
-        const t = setInterval(() => {
-            i = (i + 1) % cycle.length;
-            setActiveTab(cycle[i]);
-            setSelectedPatient(null);
-        }, 4000);
-        return () => clearInterval(t);
-    }, []);
+  // Auto-cycle tabs for demo effect
+  useEffect(() => {
+    const cycle: Tab[] = ['schedule', 'noshow', 'promo'];
+    let i = 0;
+    const t = setInterval(() => {
+      i = (i + 1) % cycle.length;
+      setActiveTab(cycle[i]);
+      setSelectedPatient(null);
+    }, 4000);
+    return () => clearInterval(t);
+  }, []);
 
-    // Live clock
-    useEffect(() => {
-        const update = () => {
-            const now = new Date();
-            setCurrentTime(now.toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' }));
-        };
-        update();
-        const t = setInterval(update, 60000);
-        return () => clearInterval(t);
-    }, []);
-
-    const handleSend = (i: number) => {
-        setSending(i);
-        setTimeout(() => {
-            setPromos(prev => prev.map((p, idx) => idx === i ? { ...p, sent: true } : p));
-            setSending(null);
-        }, 1200);
+  // Live clock
+  useEffect(() => {
+    const update = () => {
+      const now = new Date();
+      setCurrentTime(now.toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' }));
     };
+    update();
+    const t = setInterval(update, 60000);
+    return () => clearInterval(t);
+  }, []);
 
-    const highRiskCount = PATIENTS.filter(p => p.noShowRisk === 'high').length;
+  const handleSend = (i: number) => {
+    setSending(i);
+    setTimeout(() => {
+      setPromos(prev => prev.map((p, idx) => idx === i ? { ...p, sent: true } : p));
+      setSending(null);
+    }, 1200);
+  };
 
-    return (
-        <div className="crm-wrapper">
-            <div className="crm-card">
+  const highRiskCount = PATIENTS.filter(p => p.noShowRisk === 'high').length;
 
-                {/* Header */}
-                <div className="crm-header">
-                    <div className="crm-logo">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                            <circle cx="9" cy="7" r="4" />
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                        </svg>
-                        <span>AI CRM</span>
+  return (
+    <div className="crm-wrapper">
+      <div className="crm-card">
+
+        {/* Header */}
+        <div className="crm-header">
+          <div className="crm-logo">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+            <span>AI CRM</span>
+          </div>
+          <div className="crm-header-right">
+            <div className="crm-date">Today · {currentTime || '09:41'}</div>
+            {highRiskCount > 0 && (
+              <div className="crm-alert-badge">{highRiskCount} at risk</div>
+            )}
+          </div>
+        </div>
+
+        {/* Tabs */}
+        <div className="crm-tabs">
+          {([
+            { id: 'schedule', label: 'Schedule', icon: '📅' },
+            { id: 'noshow', label: 'No-show AI', icon: '⚠️' },
+            { id: 'promo', label: 'Promotions', icon: '💌' },
+          ] as { id: Tab; label: string; icon: string }[]).map(tab => (
+            <button
+              key={tab.id}
+              className={`crm-tab ${activeTab === tab.id ? 'active' : ''}`}
+              onClick={() => { setActiveTab(tab.id); setSelectedPatient(null); }}
+            >
+              <span>{tab.icon}</span>
+              <span>{tab.label}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* ── Schedule Tab ── */}
+        {activeTab === 'schedule' && (
+          <div className="crm-body" key="schedule">
+            <div className="tab-content">
+              <div className="crm-section-label">Today&apos;s Appointments · {PATIENTS.length} patients</div>
+              <div className="patient-list">
+                {PATIENTS.map((p, i) => (
+                  <div
+                    key={i}
+                    className={`patient-row ${selectedPatient === i ? 'selected' : ''}`}
+                    onClick={() => setSelectedPatient(selectedPatient === i ? null : i)}
+                  >
+                    <div className="patient-time">{p.time}</div>
+                    <div className="patient-info">
+                      <div className="patient-name-row">
+                        <span className="patient-name">{p.name}</span>
+                        <span className="patient-tag" style={{ background: `${p.tagColor}22`, color: p.tagColor, borderColor: `${p.tagColor}55` }}>
+                          {p.tag}
+                        </span>
+                      </div>
+                      <div className="patient-treatment">{p.treatment}</div>
                     </div>
-                    <div className="crm-header-right">
-                        <div className="crm-date">Today · {currentTime || '09:41'}</div>
-                        {highRiskCount > 0 && (
-                            <div className="crm-alert-badge">{highRiskCount} at risk</div>
-                        )}
+                    <div className="patient-risk-mini" style={{ color: RISK_COLOR[p.noShowRisk] }}>
+                      {RISK_LABEL[p.noShowRisk]}
                     </div>
+                  </div>
+                ))}
+              </div>
+              {selectedPatient !== null && (
+                <div className="patient-detail">
+                  <div className="detail-row"><span>Last visit</span><span>{PATIENTS[selectedPatient].lastVisit}</span></div>
+                  <div className="detail-row"><span>No-show risk</span>
+                    <span style={{ color: RISK_COLOR[PATIENTS[selectedPatient].noShowRisk] }}>
+                      {PATIENTS[selectedPatient].riskPct}%
+                    </span>
+                  </div>
                 </div>
-
-                {/* Tabs */}
-                <div className="crm-tabs">
-                    {([
-                        { id: 'schedule', label: 'Schedule', icon: '📅' },
-                        { id: 'noshow', label: 'No-show AI', icon: '⚠️' },
-                        { id: 'promo', label: 'Promotions', icon: '💌' },
-                    ] as { id: Tab; label: string; icon: string }[]).map(tab => (
-                        <button
-                            key={tab.id}
-                            className={`crm-tab ${activeTab === tab.id ? 'active' : ''}`}
-                            onClick={() => { setActiveTab(tab.id); setSelectedPatient(null); }}
-                        >
-                            <span>{tab.icon}</span>
-                            <span>{tab.label}</span>
-                        </button>
-                    ))}
-                </div>
-
-                {/* ── Schedule Tab ── */}
-                {activeTab === 'schedule' && (
-                    <div className="crm-body">
-                        <div className="crm-section-label">Today&apos;s Appointments · {PATIENTS.length} patients</div>
-                        <div className="patient-list">
-                            {PATIENTS.map((p, i) => (
-                                <div
-                                    key={i}
-                                    className={`patient-row ${selectedPatient === i ? 'selected' : ''}`}
-                                    onClick={() => setSelectedPatient(selectedPatient === i ? null : i)}
-                                >
-                                    <div className="patient-time">{p.time}</div>
-                                    <div className="patient-info">
-                                        <div className="patient-name-row">
-                                            <span className="patient-name">{p.name}</span>
-                                            <span className="patient-tag" style={{ background: `${p.tagColor}22`, color: p.tagColor, borderColor: `${p.tagColor}55` }}>
-                                                {p.tag}
-                                            </span>
-                                        </div>
-                                        <div className="patient-treatment">{p.treatment}</div>
-                                    </div>
-                                    <div className="patient-risk-mini" style={{ color: RISK_COLOR[p.noShowRisk] }}>
-                                        {RISK_LABEL[p.noShowRisk]}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                        {selectedPatient !== null && (
-                            <div className="patient-detail">
-                                <div className="detail-row"><span>Last visit</span><span>{PATIENTS[selectedPatient].lastVisit}</span></div>
-                                <div className="detail-row"><span>No-show risk</span>
-                                    <span style={{ color: RISK_COLOR[PATIENTS[selectedPatient].noShowRisk] }}>
-                                        {PATIENTS[selectedPatient].riskPct}%
-                                    </span>
-                                </div>
-                            </div>
-                        )}
-                    </div>
-                )}
-
-                {/* ── No-show Tab ── */}
-                {activeTab === 'noshow' && (
-                    <div className="crm-body">
-                        <div className="crm-section-label">AI No-show Prediction</div>
-                        <div className="noshow-list">
-                            {PATIENTS.map((p, i) => (
-                                <div key={i} className="noshow-row">
-                                    <div className="noshow-left">
-                                        <div className="noshow-name">{p.name}</div>
-                                        <div className="noshow-sub">{p.time} · {p.treatment}</div>
-                                    </div>
-                                    <div className="noshow-right">
-                                        <div className="noshow-bar-wrap">
-                                            <div
-                                                className="noshow-bar"
-                                                style={{
-                                                    width: `${p.riskPct}%`,
-                                                    background: RISK_COLOR[p.noShowRisk],
-                                                }}
-                                            />
-                                        </div>
-                                        <div className="noshow-pct" style={{ color: RISK_COLOR[p.noShowRisk] }}>
-                                            {p.riskPct}%
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                        <div className="noshow-legend">
-                            <span style={{ color: '#34d399' }}>● Low</span>
-                            <span style={{ color: '#f59e0b' }}>● Medium</span>
-                            <span style={{ color: '#f87171' }}>● High risk</span>
-                        </div>
-                    </div>
-                )}
-
-                {/* ── Promo Tab ── */}
-                {activeTab === 'promo' && (
-                    <div className="crm-body">
-                        <div className="crm-section-label">AI-suggested Promotions</div>
-                        <div className="promo-list">
-                            {promos.map((promo, i) => (
-                                <div key={i} className={`promo-card ${promo.sent ? 'sent' : ''}`}>
-                                    <div className="promo-patient">
-                                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" />
-                                        </svg>
-                                        {promo.patient}
-                                    </div>
-                                    <div className="promo-msg">&ldquo;{promo.msg}&rdquo;</div>
-                                    <button
-                                        className={`promo-send-btn ${promo.sent ? 'sent' : ''}`}
-                                        onClick={() => !promo.sent && handleSend(i)}
-                                        disabled={promo.sent || sending === i}
-                                    >
-                                        {sending === i ? (
-                                            <span className="sending-spinner" />
-                                        ) : promo.sent ? (
-                                            <>✓ Sent</>
-                                        ) : (
-                                            <>Send Message</>
-                                        )}
-                                    </button>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                )}
-
+              )}
             </div>
+          </div>
+        )}
 
-            <style jsx>{`
+        {/* ── No-show Tab ── */}
+        {activeTab === 'noshow' && (
+          <div className="crm-body" key="noshow">
+            <div className="tab-content">
+              <div className="crm-section-label">AI No-show Prediction</div>
+              <div className="noshow-list">
+                {PATIENTS.map((p, i) => (
+                  <div key={i} className="noshow-row">
+                    <div className="noshow-left">
+                      <div className="noshow-name">{p.name}</div>
+                      <div className="noshow-sub">{p.time} · {p.treatment}</div>
+                    </div>
+                    <div className="noshow-right">
+                      <div className="noshow-bar-wrap">
+                        <div
+                          className="noshow-bar"
+                          style={{
+                            width: `${p.riskPct}%`,
+                            background: RISK_COLOR[p.noShowRisk],
+                          }}
+                        />
+                      </div>
+                      <div className="noshow-pct" style={{ color: RISK_COLOR[p.noShowRisk] }}>
+                        {p.riskPct}%
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="noshow-legend">
+                <span style={{ color: '#34d399' }}>● Low</span>
+                <span style={{ color: '#f59e0b' }}>● Medium</span>
+                <span style={{ color: '#f87171' }}>● High risk</span>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ── Promo Tab ── */}
+        {activeTab === 'promo' && (
+          <div className="crm-body" key="promo">
+            <div className="tab-content">
+              <div className="crm-section-label">AI-suggested Promotions</div>
+              <div className="promo-list">
+                {promos.map((promo, i) => (
+                  <div key={i} className={`promo-card ${promo.sent ? 'sent' : ''}`}>
+                    <div className="promo-patient">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" />
+                      </svg>
+                      {promo.patient}
+                    </div>
+                    <div className="promo-msg">&ldquo;{promo.msg}&rdquo;</div>
+                    <button
+                      className={`promo-send-btn ${promo.sent ? 'sent' : ''}`}
+                      onClick={() => !promo.sent && handleSend(i)}
+                      disabled={promo.sent || sending === i}
+                    >
+                      {sending === i ? (
+                        <span className="sending-spinner" />
+                      ) : promo.sent ? (
+                        <>✓ Sent</>
+                      ) : (
+                        <>Send Message</>
+                      )}
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+      </div>
+
+      <style jsx>{`
         .crm-wrapper {
           display: flex;
           justify-content: center;
@@ -343,8 +349,28 @@ export default function AICRMDemo() {
 
         /* ── Body ── */
         .crm-body {
+          height: 240px;
+          overflow: hidden;
           padding: 10px 12px 12px;
-          min-height: 220px;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .tab-content {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          overflow-y: auto;
+          overflow-x: hidden;
+          scrollbar-width: none;
+          animation: tabFadeIn 0.25s ease;
+        }
+
+        .tab-content::-webkit-scrollbar { display: none; }
+
+        @keyframes tabFadeIn {
+          from { opacity: 0; transform: translateY(4px); }
+          to   { opacity: 1; transform: translateY(0); }
         }
 
         .crm-section-label {
@@ -609,6 +635,6 @@ export default function AICRMDemo() {
           to { transform: rotate(360deg); }
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 }
