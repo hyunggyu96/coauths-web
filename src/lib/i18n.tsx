@@ -21,12 +21,12 @@ const translations: Translations = {
 
     // Hero Section
     'hero.tagline': {
-        en: 'Transparency Without Ads, Trust Guaranteed by AI',
-        ko: '광고 없는 투명성,\nAI가 보증하는 신뢰성'
+        en: 'In Transparency, We build Trust.',
+        ko: '투명함이 곧 신뢰가 되는 곳.'
     },
     'hero.description': {
-        en: 'The neutral information hub for the medical aesthetics and medical device industry.',
-        ko: '미용 의료·의료기기 산업의 중립적 정보 허브'
+        en: 'Elevating Transparency. Strengthening Trust. AI-Driven Neutrality for Global Aesthetics.',
+        ko: '더 높은 투명성과 더 단단한 신뢰. AI 기반의 중립성으로 글로벌 에스테틱 산업의 미래를 제시합니다.'
     },
     'hero.cta.primary': { en: 'Learn More', ko: '더 알아보기' },
     'hero.cta.secondary': { en: 'Contact Us', ko: '문의하기' },
@@ -168,8 +168,8 @@ const translations: Translations = {
         ko: '© 2026 Coauths. All rights reserved.'
     },
     'footer.tagline': {
-        en: 'Transparency Without Ads, Trust Guaranteed by AI',
-        ko: '광고 없는 투명성, AI가 보증하는 신뢰성'
+        en: 'In Transparency, We build Trust.',
+        ko: '투명함이 곧 신뢰가 되는 곳.'
     },
 };
 

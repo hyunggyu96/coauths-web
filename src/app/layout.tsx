@@ -18,19 +18,19 @@ const notoSansKR = Noto_Sans_KR({
 });
 
 export const metadata: Metadata = {
-  title: "Coauths | Transparency Without Ads, Trust Guaranteed by AI",
-  description: "The neutral information hub for the medical aesthetics and medical device industry. Building a Single Source of Truth that all stakeholders can trust.",
+  title: "Coauths | In Transparency, We build Trust.",
+  description: "Elevating Transparency. Strengthening Trust. AI-Driven Neutrality for Global Aesthetics.",
   keywords: "medical aesthetics, AI, healthcare, medical devices, compliance, transparency",
   openGraph: {
     title: "Coauths",
-    description: "Transparency Without Ads, Trust Guaranteed by AI",
+    description: "In Transparency, We build Trust.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
     title: "Coauths",
-    description: "Transparency Without Ads, Trust Guaranteed by AI",
+    description: "In Transparency, We build Trust.",
   },
 };
 
