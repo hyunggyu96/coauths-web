@@ -22,11 +22,11 @@ const translations: Translations = {
     // Hero Section
     'hero.tagline': {
         en: 'In Transparency, We build Trust.',
-        ko: '투명함이 곧 신뢰가 되는 곳.'
+        ko: '투명성으로, 신뢰를 만듭니다.'
     },
     'hero.description': {
         en: 'Elevating Transparency. Strengthening Trust. AI-Driven Neutrality for Global Aesthetics.',
-        ko: '더 높은 투명성과 더 단단한 신뢰. AI 기반의 중립성으로 글로벌 에스테틱 산업의 미래를 제시합니다.'
+        ko: 'AI 기반의 중립성으로 글로벌 에스테틱 시장의 투명성과 신뢰를 높입니다.'
     },
     'hero.cta.primary': { en: 'Learn More', ko: '더 알아보기' },
     'hero.cta.secondary': { en: 'Contact Us', ko: '문의하기' },
@@ -169,7 +169,7 @@ const translations: Translations = {
     },
     'footer.tagline': {
         en: 'In Transparency, We build Trust.',
-        ko: '투명함이 곧 신뢰가 되는 곳.'
+        ko: '투명성으로, 신뢰를 만듭니다.'
     },
 };
 
