@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import { useTranslation } from '@/lib/i18n';
-import { BrainCircuit, Lock, TrendingUp, Instagram, Check } from 'lucide-react';
+import { BrainCircuit, TrendingUp, Instagram, Check } from 'lucide-react';
+import CosmosDemo from '@/components/CosmosDemo';
 
 export default function Services() {
   const { t } = useTranslation();
@@ -20,7 +21,7 @@ export default function Services() {
     },
     {
       id: 'cosmos',
-      icon: <Lock size={80} strokeWidth={1} color="#FFFFFF" />,
+      icon: null,
       features: [
         'Vision scan + NFC/RFID hybrid',
         'No direct database access required',
@@ -58,9 +59,13 @@ export default function Services() {
           {services.map((service, index) => (
             <div key={service.id} className={`service-block ${index % 2 === 1 ? 'reverse' : ''}`}>
               <div className="service-visual">
-                <div className="service-icon-large">
-                  {service.icon}
-                </div>
+                {service.id === 'cosmos' ? (
+                  <CosmosDemo />
+                ) : (
+                  <div className="service-icon-large">
+                    {service.icon}
+                  </div>
+                )}
               </div>
               <div className="service-content">
                 {/* Subtitle removed as per request */}
