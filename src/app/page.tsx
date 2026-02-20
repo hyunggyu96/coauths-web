@@ -173,20 +173,6 @@ export default function Home() {
       </section>
 
 
-      {/* CTA Section */}
-      <section className="cta-section section">
-        <div className="container">
-          <div className="cta-content">
-            <h2>Ready to learn more?</h2>
-            <p>Discover how CoAuths is building the future of trusted medical aesthetics information.</p>
-            <Link href="/contact" className="btn btn-primary">
-              {t('hero.cta.secondary')}
-            </Link>
-          </div>
-        </div>
-      </section>
-
-
       <style jsx>{`
         .hero {
           min-height: 100vh;
