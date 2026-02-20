@@ -3,9 +3,9 @@
 :root {
   /* Color Palette - Brand Colors */
   /* 배경색 */
-  --color-background: #E7E8E1;
-  --color-primary: #E7E8E1;
-  --color-primary-light: #F5F5F2;
+  --color-background: #FFFFFF;
+  --color-primary: #FFFFFF;
+  --color-primary-light: #F8F8F8;
   --color-white: #FFFFFF;
 
   /* 키 메시지 컬러 */
