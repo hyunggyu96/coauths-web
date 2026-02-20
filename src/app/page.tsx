@@ -134,6 +134,7 @@ export default function Home() {
       <section className="problems section">
         <div className="container">
           <div className="section-header text-center">
+            <span className="section-label">The Challenge</span>
             <h2 className="section-title">{t('problem.title')}</h2>
             <p className="section-subtitle">{t('problem.subtitle')}</p>
           </div>
@@ -156,6 +157,7 @@ export default function Home() {
       <section className="solutions section">
         <div className="container">
           <div className="section-header text-center">
+            <span className="section-label">Our Solution</span>
             <h2 className="section-title">{t('solution.title')}</h2>
             <p className="section-subtitle">{t('solution.subtitle')}</p>
           </div>
@@ -179,7 +181,7 @@ export default function Home() {
           <div className="cta-content">
             <h2>Ready to learn more?</h2>
             <p>Discover how CoAuths is building the future of trusted medical aesthetics information.</p>
-            <Link href="/contact" className="btn btn-primary">
+            <Link href="/contact" className="btn btn-white">
               {t('hero.cta.secondary')}
             </Link>
           </div>
@@ -195,7 +197,7 @@ export default function Home() {
           padding-top: 5vh;
           padding-bottom: 4vh;
           text-align: center;
-          background: radial-gradient(circle at 50% 30%, rgba(132, 170, 115, 0.08) 0%, transparent 55%);
+          background: radial-gradient(circle at 50% 30%, rgba(132, 170, 115, 0.14) 0%, transparent 65%);
         }
 
         .hero-content {
@@ -278,7 +280,7 @@ export default function Home() {
         }
 
         .cta-section {
-          background: linear-gradient(180deg, transparent 0%, rgba(132, 170, 115, 0.08) 100%);
+          background: #84AA73;
         }
 
         .cta-content {
@@ -289,10 +291,70 @@ export default function Home() {
 
         .cta-content h2 {
           margin-bottom: 1rem;
+          color: #FFFFFF;
         }
 
         .cta-content p {
           margin-bottom: 2rem;
+          color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* ── Section label badge ── */
+        .section-label {
+          display: inline-block;
+          font-size: 0.7rem;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: #84AA73;
+          background: rgba(132, 170, 115, 0.1);
+          border: 1px solid rgba(132, 170, 115, 0.3);
+          border-radius: 20px;
+          padding: 4px 14px;
+          margin-bottom: 1rem;
+        }
+
+        /* ── Problems section: subtle green tint ── */
+        .problems {
+          background: rgba(132, 170, 115, 0.04);
+        }
+
+        /* ── Problem cards: left green accent border ── */
+        .problems .card {
+          border-left: 3px solid rgba(132, 170, 115, 0.6);
+        }
+
+        /* ── Solutions section: dark background ── */
+        .solutions {
+          background: #0b150b;
+        }
+
+        .solutions h2,
+        .solutions .section-title {
+          color: #FFFFFF;
+        }
+
+        .solutions .section-subtitle {
+          color: rgba(255, 255, 255, 0.6);
+        }
+
+        .solutions .section-label {
+          background: rgba(132, 170, 115, 0.15);
+          border-color: rgba(132, 170, 115, 0.4);
+        }
+
+        /* ── CTA: white button for green background ── */
+        .btn-white {
+          background: #FFFFFF;
+          color: #84AA73;
+          border-color: #FFFFFF;
+          font-weight: 700;
+        }
+
+        .btn-white:hover {
+          background: transparent;
+          color: #FFFFFF;
+          border-color: rgba(255, 255, 255, 0.7);
         }
 
         @media (max-width: 768px) {
