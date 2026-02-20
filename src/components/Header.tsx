@@ -91,14 +91,14 @@ export default function Header() {
           left: 0;
           right: 0;
           z-index: 100;
-          background: rgba(231, 232, 225, 0.95);
+          background: rgba(255, 255, 255, 0.95);
           backdrop-filter: blur(10px);
           border-bottom: 1px solid rgba(132, 170, 115, 0.2);
           transition: background-color 0.3s ease;
         }
 
         .header.mobile-open {
-          background: #E7E8E1;
+          background: #FFFFFF;
           backdrop-filter: none;
           border-bottom: none;
         }
@@ -156,7 +156,7 @@ export default function Header() {
           border-radius: 4px;
           padding: 0.5rem 0.75rem;
           font-size: 0.75rem;
-          font-family: 'Noto Sans', sans-serif;
+          font-family: var(--font-inter), sans-serif;
           color: #7F7F7F;
           cursor: pointer;
           transition: all 0.3s ease;
@@ -233,7 +233,7 @@ export default function Header() {
             width: auto;
             min-width: 180px;
             max-width: 300px;
-            background-color: #E7E8E1;
+            background-color: #FFFFFF;
             z-index: 99;
             padding: 1rem 2rem 1.5rem;
             border-left: 1px solid rgba(132, 170, 115, 0.2);

@@ -49,7 +49,7 @@ export default function Footer() {
 
       <style jsx>{`
         .footer {
-          background: #222F30;
+          background: #FFFFFF;
           border-top: 1px solid rgba(132, 170, 115, 0.2);
           padding: 4rem 0 2rem;
           margin-top: auto;
@@ -71,7 +71,7 @@ export default function Footer() {
         }
 
         .logo-text {
-          color: #FFFFFF;
+          color: #222F30;
         }
 
         .logo-accent {
@@ -86,7 +86,7 @@ export default function Footer() {
 
         .footer-links h4,
         .footer-contact h4 {
-          color: #FFFFFF;
+          color: #222F30;
           font-size: 0.875rem;
           font-weight: 600;
           margin-bottom: 1rem;
