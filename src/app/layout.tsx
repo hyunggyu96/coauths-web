@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Noto_Sans, Noto_Sans_KR } from "next/font/google";
+import { Inter, Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
 import { I18nProvider } from "@/lib/i18n";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const notoSans = Noto_Sans({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-noto-sans",
+  variable: "--font-inter",
+  display: "swap",
 });
 
 const notoSansKR = Noto_Sans_KR({
@@ -41,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${notoSans.variable} ${notoSansKR.variable}`}>
+      <body className={`${inter.variable} ${notoSansKR.variable}`}>
         <I18nProvider>
           <div className="app-wrapper">
             <Header />
