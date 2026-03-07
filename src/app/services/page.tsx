@@ -93,7 +93,7 @@ export default function Services() {
                       <Instagram size={24} />
                       <span className="sr-only">Instagram</span>
                     </a>
-                    <a href="https://aesthetics-intelligence.vercel.app/" target="_blank" rel="noopener noreferrer" className="btn-icon platform-btn">
+                    <a href="https://www.aesthetic-intelligence.ai/" target="_blank" rel="noopener noreferrer" className="btn-icon platform-btn">
                       <span className="aip-box-logo">AIP</span>
                     </a>
                   </div>
