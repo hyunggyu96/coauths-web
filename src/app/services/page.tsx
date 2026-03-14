@@ -105,31 +105,41 @@ export default function Services() {
       </section>
 
       <style jsx>{`
+        /* ─── Page Hero ─── */
         .page-hero {
-          padding-top: 4rem;
+          padding-top: 3.5rem;
           padding-bottom: 2rem;
           text-align: center;
         }
 
-        .page-hero .mono {
-          margin-bottom: 0.5rem;
+        .page-eyebrow {
+          display: inline-block;
+          font-size: 0.8125rem;
+          font-weight: 600;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          color: #999999;
+          margin-bottom: 1rem;
         }
 
         .page-subtitle {
-          font-size: 1.25rem;
+          font-size: 1.125rem;
+          color: #6e6e73;
           margin-top: 1rem;
-          max-width: 600px;
+          max-width: 560px;
           margin-left: auto;
           margin-right: auto;
+          line-height: 1.7;
         }
 
+        /* ─── Service Block ─── */
         .service-block {
           display: grid;
           grid-template-columns: 1fr 1.5fr;
           gap: 4rem;
           align-items: center;
-          padding: 4rem 0;
-          border-bottom: 1px solid rgba(132, 170, 115, 0.2);
+          padding: 5rem 0;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.07);
         }
 
         .service-block:last-child {
@@ -155,123 +165,102 @@ export default function Services() {
           width: 200px;
           height: 200px;
           background: linear-gradient(135deg, #84AA73 0%, #6d905d 100%);
-          border: 1px solid rgba(132, 170, 115, 0.2);
           border-radius: 50%;
           color: #FFFFFF;
           display: flex;
           align-items: center;
           justify-content: center;
           font-size: 5rem;
-        }
-
-        .service-number {
-          position: absolute;
-          top: 0;
-          right: 2rem;
-          font-size: 4rem;
-          color: rgba(132, 170, 115, 0.15);
-          font-weight: 700;
-        }
-
-        .service-content .mono {
-          display: block;
-          margin-bottom: 0.5rem;
+          box-shadow: 0 12px 40px rgba(132,170,115,0.3);
         }
 
         .service-content h2 {
           margin-bottom: 1rem;
-          font-size: clamp(1.5rem, 2.5vw, 2.5rem); /* Adjusted font size for single line */
-          white-space: nowrap; /* Prevent line break if possible */
-        }
-        
-        @media (max-width: 1024px) {
-          .service-content h2 {
-             white-space: normal; /* Allow wrap on smaller screens */
-             font-size: 1.75rem;
-          }
+          font-size: clamp(1.75rem, 3vw, 2.75rem);
+          font-weight: 800;
+          color: #1d1d1f;
+          letter-spacing: -0.03em;
+          line-height: 1.1;
         }
 
         .service-desc {
-          font-size: 1.125rem;
+          font-size: 1.0625rem;
+          color: #6e6e73;
           margin-bottom: 2rem;
           line-height: 1.8;
         }
 
+        /* ─── Feature list ─── */
         .feature-list {
           list-style: none;
           padding: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
         }
 
         .feature-list li {
           display: flex;
           align-items: center;
           gap: 0.75rem;
-          gap: 0.75rem;
-          color: #7F7F7F;
-          padding: 0.5rem 0;
+          color: #424245;
+          padding: 0.5625rem 0;
+          border-bottom: 1px solid rgba(0,0,0,0.05);
+          font-size: 0.9375rem;
         }
+
+        .feature-list li:last-child { border-bottom: none; }
 
         .check {
           color: #84AA73;
-          font-weight: 600;
+          flex-shrink: 0;
         }
 
-        /* Action Buttons - Moved outside media query for consistent layout */
+        /* ─── Action buttons ─── */
         .action-buttons {
           display: flex;
-          flex-direction: row; /* Ensure horizontal layout */
-          gap: 1rem;
+          flex-direction: row;
+          gap: 0.75rem;
           margin-top: 2rem;
         }
 
         .btn-icon {
           display: flex;
           align-items: center;
-          justify-content: center; /* Center content */
-          padding: 0; /* Remove padding to fix size */
-          width: 48px;  /* Fixed width */
-          height: 48px; /* Fixed height */
-          border-radius: 8px; /* Slightly rounded */
-          border: 1px solid #84AA73;
+          justify-content: center;
+          width: 48px;
+          height: 48px;
+          border-radius: 12px;
+          border: 1px solid rgba(132, 170, 115, 0.4);
           color: #84AA73;
-          transition: all 0.3s ease;
-          font-family: monospace;
-          background: transparent;
-        }
-
-        .btn-icon.disabled {
-          opacity: 0.3;
-          cursor: not-allowed;
-          pointer-events: none;
-          border-color: #334155;
-          color: #334155;
+          transition: all 0.25s ease;
+          background: rgba(132, 170, 115, 0.06);
         }
 
         .btn-icon:hover {
-          background: rgba(100, 255, 218, 0.1);
+          background: rgba(132, 170, 115, 0.15);
+          border-color: #84AA73;
           transform: translateY(-2px);
         }
 
         .aip-box-logo {
-            font-weight: 800;
-            font-size: 1rem;
-            letter-spacing: 0.5px;
-            font-family: sans-serif;
-            /* Removed internal border to match instgram button style */
-            line-height: 1;
+          font-weight: 800;
+          font-size: 0.9375rem;
+          letter-spacing: 0.5px;
+          font-family: sans-serif;
+          line-height: 1;
         }
-        
-        /* Remove duplicate styles in media query if necessary or override */
+
+        /* ─── Responsive ─── */
         @media (max-width: 768px) {
           .service-block {
             grid-template-columns: 1fr;
-            gap: 2rem;
+            gap: 2.5rem;
             text-align: center;
+            padding: 3.5rem 0;
           }
 
-          .service-block.reverse {
-            direction: ltr;
-          }
+          .service-block.reverse { direction: ltr; }
 
           .service-visual {
             width: 100%;
@@ -280,7 +269,6 @@ export default function Services() {
             align-items: center;
           }
 
-          /* Center all demo component wrappers on mobile */
           .service-visual > * {
             margin-left: auto;
             margin-right: auto;
@@ -298,19 +286,12 @@ export default function Services() {
             max-width: 360px;
           }
 
-          .action-buttons {
-            justify-content: center;
-          }
+          .action-buttons { justify-content: center; }
 
           .service-icon-large {
             width: 150px;
             height: 150px;
             font-size: 3.5rem;
-          }
-
-          .service-number {
-            right: 1rem;
-            font-size: 2.5rem;
           }
         }
       `}</style>

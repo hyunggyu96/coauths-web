@@ -2,16 +2,22 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from '@/lib/i18n';
 
 export default function Header() {
   const { language, setLanguage, t } = useTranslation();
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 12);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
-    { href: '/', label: 'nav.home' },
     { href: '/about', label: 'nav.about' },
     { href: '/services', label: 'nav.services' },
     { href: '/roadmap', label: 'nav.roadmap' },
@@ -23,7 +29,7 @@ export default function Header() {
   };
 
   return (
-    <header className={`header ${mobileMenuOpen ? 'mobile-open' : ''}`}>
+    <header className={`header ${scrolled ? 'scrolled' : ''} ${mobileMenuOpen ? 'mobile-open' : ''}`}>
       <nav className="nav container">
         <Link href="/" className="logo" onClick={() => setMobileMenuOpen(false)}>
           <span className="logo-text">Co</span>
@@ -54,6 +60,10 @@ export default function Header() {
             <span className={language === 'ko' ? 'active' : ''}>KO</span>
           </button>
 
+          <Link href="/contact" className="btn-request">
+            Request Demo
+          </Link>
+
           {/* Mobile Menu Button */}
           <button
             className="mobile-menu-btn"
@@ -76,11 +86,18 @@ export default function Header() {
               href={link.href}
               className={`mobile-nav-link ${pathname === link.href ? 'active' : ''}`}
               onClick={() => setMobileMenuOpen(false)}
-              style={{ animationDelay: `${index * 0.1}s` }}
+              style={{ animationDelay: `${index * 0.07}s` }}
             >
               {t(link.label)}
             </Link>
           ))}
+          <Link
+            href="/contact"
+            className="mobile-nav-cta"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Request Demo
+          </Link>
         </div>
       </nav>
 
@@ -91,157 +108,183 @@ export default function Header() {
           left: 0;
           right: 0;
           z-index: 100;
-          background: rgba(255, 255, 255, 0.95);
-          backdrop-filter: blur(10px);
-          border-bottom: 1px solid rgba(132, 170, 115, 0.2);
-          transition: background-color 0.3s ease;
+          height: 64px;
+          background: rgba(255, 255, 255, 0.82);
+          backdrop-filter: saturate(180%) blur(20px);
+          -webkit-backdrop-filter: saturate(180%) blur(20px);
+          border-bottom: 1px solid transparent;
+          transition: border-color 0.3s ease, background 0.3s ease;
+        }
+
+        .header.scrolled {
+          border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+          background: rgba(255, 255, 255, 0.92);
         }
 
         .header.mobile-open {
           background: #FFFFFF;
           backdrop-filter: none;
-          border-bottom: none;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .nav {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          height: 70px;
+          height: 100%;
         }
 
+        /* ── Logo ── */
         .logo {
-          font-size: 1.5rem;
+          font-size: 1.4rem;
           font-weight: 800;
           text-decoration: none;
-          letter-spacing: -0.02em;
+          letter-spacing: -0.03em;
+          line-height: 1;
+          flex-shrink: 0;
         }
 
-        .logo-text {
-          color: #222F30;
-          font-weight: 800;
-        }
+        .logo-text  { color: #1d1d1f; }
+        .logo-accent { color: #84AA73; }
 
-        .logo-accent {
-          color: #84AA73;
-          font-weight: 800;
-        }
-
+        /* ── Nav links ── */
         .nav-links {
           display: flex;
-          gap: 2rem;
+          gap: 0.25rem;
         }
 
         .nav-link {
-          color: #7F7F7F;
+          color: #424245;
           font-size: 0.875rem;
           font-weight: 500;
-          transition: color 0.3s ease;
+          padding: 0.4375rem 0.875rem;
+          border-radius: 980px;
+          transition: color 0.2s ease, background 0.2s ease;
+          letter-spacing: -0.01em;
         }
 
-        .nav-link:hover,
+        .nav-link:hover {
+          color: #1d1d1f;
+          background: rgba(0,0,0,0.05);
+        }
+
         .nav-link.active {
-          color: #222F30;
+          color: #1d1d1f;
+          font-weight: 600;
         }
 
+        /* ── Actions ── */
         .nav-actions {
           display: flex;
           align-items: center;
-          gap: 1rem;
+          gap: 0.625rem;
         }
 
         .lang-toggle {
           background: transparent;
-          border: 1px solid rgba(127, 127, 127, 0.3);
-          border-radius: 4px;
-          padding: 0.5rem 0.75rem;
+          border: 1px solid rgba(0, 0, 0, 0.15);
+          border-radius: 980px;
+          padding: 0.375rem 0.75rem;
           font-size: 0.75rem;
           font-family: var(--font-inter), sans-serif;
-          color: #7F7F7F;
+          font-weight: 500;
+          color: #6e6e73;
           cursor: pointer;
-          transition: all 0.3s ease;
+          transition: all 0.2s ease;
+          letter-spacing: 0.02em;
         }
 
         .lang-toggle:hover {
-          border-color: #222F30;
+          border-color: rgba(0,0,0,0.3);
+          color: #1d1d1f;
         }
 
         .lang-toggle span.active {
-          color: #222F30;
-          font-weight: 600;
+          color: #1d1d1f;
+          font-weight: 700;
         }
 
         .lang-toggle .divider {
-          margin: 0 0.25rem;
-          color: #7F7F7F;
+          margin: 0 0.2rem;
+          opacity: 0.4;
         }
 
+        /* Request Demo button */
+        .btn-request {
+          display: inline-flex;
+          align-items: center;
+          padding: 0.4375rem 1.125rem;
+          background: #84AA73;
+          color: #FFFFFF !important;
+          font-size: 0.875rem;
+          font-weight: 600;
+          border-radius: 980px;
+          text-decoration: none;
+          transition: background 0.2s ease, transform 0.2s ease;
+          letter-spacing: -0.01em;
+        }
+
+        .btn-request:hover {
+          background: #5a7a4a;
+          transform: scale(1.02);
+        }
+
+        /* ── Hamburger ── */
         .mobile-menu-btn {
           display: none;
           background: transparent;
           border: none;
           cursor: pointer;
           padding: 0.5rem;
+          border-radius: 8px;
         }
 
         .hamburger {
           display: flex;
           flex-direction: column;
           gap: 5px;
-          width: 24px;
+          width: 22px;
         }
 
         .hamburger span {
           display: block;
-          height: 2px;
-          background: #222F30;
-          transition: all 0.3s ease;
+          height: 1.5px;
+          background: #1d1d1f;
+          transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          border-radius: 1px;
         }
 
-        .hamburger.open span:nth-child(1) {
-          transform: rotate(45deg) translate(5px, 5px);
-        }
+        .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
+        .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
 
-        .hamburger.open span:nth-child(2) {
-          opacity: 0;
-        }
-
-        .hamburger.open span:nth-child(3) {
-          transform: rotate(-45deg) translate(5px, -5px);
-        }
-
+        /* ── Mobile Nav ── */
         .mobile-nav {
           display: none;
         }
 
-        @media (max-width: 768px) {
-          .nav-links {
-            display: none;
-          }
+        @media (max-width: 880px) {
+          .nav-links { display: none; }
+          .btn-request { display: none; }
 
-          .mobile-menu-btn {
-            display: block;
-          }
+          .mobile-menu-btn { display: block; }
 
           .mobile-nav {
             display: flex;
             flex-direction: column;
             position: fixed;
-            top: 70px;
+            top: 64px;
             right: 0;
-            left: auto;
-            width: auto;
-            min-width: 180px;
-            max-width: 300px;
-            background-color: #FFFFFF;
+            width: min(300px, 85vw);
+            background: #FFFFFF;
             z-index: 99;
-            padding: 1rem 2rem 1.5rem;
-            border-left: 1px solid rgba(132, 170, 115, 0.2);
-            border-bottom: 1px solid rgba(132, 170, 115, 0.2);
-            border-bottom-left-radius: 12px;
-            box-shadow: -10px 10px 30px -10px rgba(34, 47, 48, 0.15);
+            padding: 1.25rem 1.5rem 2rem;
+            border-left: 1px solid rgba(0,0,0,0.07);
+            border-bottom: 1px solid rgba(0,0,0,0.07);
+            border-bottom-left-radius: 20px;
+            box-shadow: -12px 12px 40px rgba(0,0,0,0.10);
             transform: translateX(100%);
-            transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+            transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
           }
 
           .mobile-nav.open {
@@ -249,45 +292,47 @@ export default function Header() {
           }
 
           .mobile-nav-link {
-            padding: 0.75rem 0;
-            font-size: 1.1rem;
-            color: #7F7F7F;
-            border-bottom: 1px solid rgba(127, 127, 127, 0.1);
+            padding: 0.875rem 0.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #424245;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
             opacity: 0;
             text-align: left;
-            margin-left: 1rem;
+            letter-spacing: -0.01em;
           }
 
-          .mobile-nav-link:last-child {
-            border-bottom: none;
-          }
+          .mobile-nav-link:last-of-type { border-bottom: none; }
 
           .mobile-nav-link:hover,
-          .mobile-nav-link.active {
-            color: #222F30;
-          }
+          .mobile-nav-link.active { color: #1d1d1f; }
 
-          .mobile-nav-link .mono {
-            margin-right: 0.75rem;
-            font-size: 0.875rem;
+          .mobile-nav-cta {
+            margin-top: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            background: #84AA73;
+            color: #FFFFFF !important;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            border-radius: 980px;
+            text-align: center;
+            opacity: 0;
           }
 
           @keyframes slideIn {
-            from {
-              opacity: 0;
-              transform: translateX(20px);
-            }
-            to {
-              opacity: 1;
-              transform: translateX(0);
-            }
+            from { opacity: 0; transform: translateX(16px); }
+            to   { opacity: 1; transform: translateX(0); }
           }
 
-          .mobile-nav.open .mobile-nav-link {
+          .mobile-nav.open .mobile-nav-link,
+          .mobile-nav.open .mobile-nav-cta {
             animation: slideIn 0.3s ease forwards;
           }
         }
       `}</style>
-    </header >
+    </header>
   );
 }
