@@ -86,7 +86,7 @@ export default function Footer() {
           display: inline-flex;
           flex-direction: row;
           align-items: center;
-          gap: 0.4rem;
+          gap: 0.8rem;
           text-decoration: none;
           margin-bottom: 1rem;
           line-height: 1;
