@@ -32,8 +32,19 @@ export default function Header() {
     <header className={`header ${scrolled ? 'scrolled' : ''} ${mobileMenuOpen ? 'mobile-open' : ''}`}>
       <nav className="nav container">
         <Link href="/" className="logo" onClick={() => setMobileMenuOpen(false)}>
-          <span className="logo-text">Co</span>
-          <span className="logo-accent">auths</span>
+          {/* Green square with white triangle icon */}
+          <svg
+            className="logo-icon"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="32" height="32" rx="5" fill="#84AA73" />
+            <polygon points="16,8 26,24 6,24" fill="white" />
+          </svg>
+          <span className="logo-wordmark">Coauths</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -125,16 +136,25 @@ export default function Header() {
 
         /* ── Logo ── */
         .logo {
-          font-size: 1.4rem;
-          font-weight: 800;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
           text-decoration: none;
-          letter-spacing: -0.03em;
-          line-height: 1;
           flex-shrink: 0;
         }
 
-        .logo-text  { color: #1d1d1f; }
-        .logo-accent { color: #84AA73; }
+        .logo-icon {
+          display: block;
+          flex-shrink: 0;
+        }
+
+        .logo-wordmark {
+          font-size: 1.4rem;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+          color: #84AA73;
+          line-height: 1;
+        }
 
         /* ── Nav links ── */
         .nav-links {

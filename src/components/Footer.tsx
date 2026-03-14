@@ -19,8 +19,18 @@ export default function Footer() {
         <div className="footer-top">
           <div className="footer-brand">
             <Link href="/" className="logo">
-              <span className="logo-text">Co</span>
-              <span className="logo-accent">auths</span>
+              <svg
+                className="logo-icon"
+                width="28"
+                height="28"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="32" height="32" rx="5" fill="#84AA73" />
+                <polygon points="16,8 26,24 6,24" fill="white" />
+              </svg>
+              <span className="logo-wordmark">Coauths</span>
             </Link>
             <p className="tagline">{t('footer.tagline')}</p>
           </div>
@@ -73,16 +83,22 @@ export default function Footer() {
         }
 
         .logo {
-          font-size: 1.4rem;
-          font-weight: 800;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.45rem;
           text-decoration: none;
-          display: inline-block;
           margin-bottom: 1rem;
-          letter-spacing: -0.03em;
         }
 
-        .logo-text  { color: #1d1d1f; }
-        .logo-accent { color: #84AA73; }
+        .logo-icon { display: block; flex-shrink: 0; }
+
+        .logo-wordmark {
+          font-size: 1.35rem;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+          color: #84AA73;
+          line-height: 1;
+        }
 
         .tagline {
           color: #999999;
