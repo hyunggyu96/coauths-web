@@ -82,8 +82,7 @@ export default function Home() {
       <section className="pillars-section section">
         <div className="container">
           <div className="section-header centered reveal">
-            <span className="section-eyebrow">Products</span>
-            <h2>Three Pillars</h2>
+            <h2>Our Products</h2>
             <p>An interconnected suite of tools built for the modern aesthetic medical industry.</p>
           </div>
 

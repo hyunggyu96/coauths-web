@@ -60,10 +60,6 @@ export default function Header() {
             <span className={language === 'ko' ? 'active' : ''}>KO</span>
           </button>
 
-          <Link href="/contact" className="btn-request">
-            Request Demo
-          </Link>
-
           {/* Mobile Menu Button */}
           <button
             className="mobile-menu-btn"
@@ -91,13 +87,6 @@ export default function Header() {
               {t(link.label)}
             </Link>
           ))}
-          <Link
-            href="/contact"
-            className="mobile-nav-cta"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Request Demo
-          </Link>
         </div>
       </nav>
 
@@ -150,14 +139,14 @@ export default function Header() {
         /* ── Nav links ── */
         .nav-links {
           display: flex;
-          gap: 0.25rem;
+          gap: 0.5rem;
         }
 
         .nav-link {
           color: #424245;
           font-size: 0.875rem;
           font-weight: 500;
-          padding: 0.4375rem 0.875rem;
+          padding: 0.4375rem 1rem;
           border-radius: 980px;
           transition: color 0.2s ease, background 0.2s ease;
           letter-spacing: -0.01em;
@@ -177,7 +166,7 @@ export default function Header() {
         .nav-actions {
           display: flex;
           align-items: center;
-          gap: 0.625rem;
+          gap: 0.75rem;
         }
 
         .lang-toggle {
@@ -209,25 +198,7 @@ export default function Header() {
           opacity: 0.4;
         }
 
-        /* Request Demo button */
-        .btn-request {
-          display: inline-flex;
-          align-items: center;
-          padding: 0.4375rem 1.125rem;
-          background: #84AA73;
-          color: #FFFFFF !important;
-          font-size: 0.875rem;
-          font-weight: 600;
-          border-radius: 980px;
-          text-decoration: none;
-          transition: background 0.2s ease, transform 0.2s ease;
-          letter-spacing: -0.01em;
-        }
 
-        .btn-request:hover {
-          background: #5a7a4a;
-          transform: scale(1.02);
-        }
 
         /* ── Hamburger ── */
         .mobile-menu-btn {
@@ -265,7 +236,6 @@ export default function Header() {
 
         @media (max-width: 880px) {
           .nav-links { display: none; }
-          .btn-request { display: none; }
 
           .mobile-menu-btn { display: block; }
 
@@ -307,20 +277,7 @@ export default function Header() {
           .mobile-nav-link:hover,
           .mobile-nav-link.active { color: #1d1d1f; }
 
-          .mobile-nav-cta {
-            margin-top: 1.25rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.75rem 1.5rem;
-            background: #84AA73;
-            color: #FFFFFF !important;
-            font-size: 0.9375rem;
-            font-weight: 600;
-            border-radius: 980px;
-            text-align: center;
-            opacity: 0;
-          }
+
 
           @keyframes slideIn {
             from { opacity: 0; transform: translateX(16px); }
