@@ -139,16 +139,16 @@ export default function Header() {
         /* ── Nav links ── */
         .nav-links {
           display: flex;
-          gap: 0.5rem;
+          gap: 2rem;
         }
 
         .nav-link {
           color: #424245;
           font-size: 0.875rem;
           font-weight: 500;
-          padding: 0.4375rem 1rem;
+          padding: 0.375rem 0.25rem;
           border-radius: 980px;
-          transition: color 0.2s ease, background 0.2s ease;
+          transition: color 0.2s ease;
           letter-spacing: -0.01em;
         }
 

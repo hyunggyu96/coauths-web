@@ -22,7 +22,7 @@ const translations: Translations = {
     // Hero Section
     'hero.tagline': {
         en: 'In Transparency, We build Trust.',
-        ko: '투명성으로, 신뢰를 만듭니다.'
+        ko: '투명성으로 신뢰를 만듭니다.'
     },
     'hero.description': {
         en: 'Elevating Transparency. Strengthening Trust. AI-Driven Neutrality for Global Aesthetics.',
@@ -169,7 +169,7 @@ const translations: Translations = {
     },
     'footer.tagline': {
         en: 'In Transparency, We build Trust.',
-        ko: '투명성으로, 신뢰를 만듭니다.'
+        ko: '투명성으로 신뢰를 만듭니다.'
     },
 };
 
