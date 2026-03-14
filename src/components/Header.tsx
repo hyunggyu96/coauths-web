@@ -35,8 +35,8 @@ export default function Header() {
           {/* Green square with white triangle icon */}
           <svg
             className="logo-icon"
-            width="32"
-            height="32"
+            width="22"
+            height="22"
             viewBox="0 0 32 32"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -136,16 +136,19 @@ export default function Header() {
 
         /* ── Logo ── */
         .logo {
-          display: flex;
+          display: inline-flex;
+          flex-direction: row;
           align-items: center;
-          gap: 0.5rem;
+          gap: 0.4rem;
           text-decoration: none;
           flex-shrink: 0;
+          line-height: 1;
         }
 
         .logo-icon {
-          display: block;
+          display: inline-block;
           flex-shrink: 0;
+          vertical-align: middle;
         }
 
         .logo-wordmark {
@@ -154,6 +157,7 @@ export default function Header() {
           letter-spacing: -0.02em;
           color: #84AA73;
           line-height: 1;
+          vertical-align: middle;
         }
 
         /* ── Nav links ── */

@@ -21,8 +21,8 @@ export default function Footer() {
             <Link href="/" className="logo">
               <svg
                 className="logo-icon"
-                width="28"
-                height="28"
+                width="22"
+                height="22"
                 viewBox="0 0 32 32"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -84,20 +84,27 @@ export default function Footer() {
 
         .logo {
           display: inline-flex;
+          flex-direction: row;
           align-items: center;
-          gap: 0.45rem;
+          gap: 0.4rem;
           text-decoration: none;
           margin-bottom: 1rem;
+          line-height: 1;
         }
 
-        .logo-icon { display: block; flex-shrink: 0; }
+        .logo-icon { 
+          display: inline-block; 
+          flex-shrink: 0; 
+          vertical-align: middle;
+        }
 
         .logo-wordmark {
-          font-size: 1.35rem;
+          font-size: 1.4rem;
           font-weight: 700;
           letter-spacing: -0.02em;
           color: #84AA73;
           line-height: 1;
+          vertical-align: middle;
         }
 
         .tagline {
